@@ -1,0 +1,55 @@
+/*
+@package theme sunset
+ ============================
+         CSS
+ ============================
+ */
+
+.sunset_general_form,
+.sunset_sidebar_preview {
+  float: left;
+}
+
+.sunset_sidebar_preview {
+  width: 280px;
+  background-color: #1f1f1f;
+  padding: 20px;
+  text-align: center;
+  margin-right: 20px;
+}
+
+.sunset_sidebar {
+  display: block;
+  text-align: center;
+}
+
+.sunset_username,
+.sunset_description {
+  color: #fff;
+  font-weight: 100;
+}
+
+.sunset_username {
+  font-size: 24px;
+  margin: 0 0 10px;
+}
+
+.sunset_description {
+  font-size: 13px;
+  margin: 0 0 20px;
+}
+.sunset_sidebar .image_container{
+  display: block;
+  width: 100% ;
+  text-align: center ;
+  overflow: hidden;
+}
+.sunset_sidebar .image_container .profile_container{
+  width: 122px !important;
+  height: 122px !important;
+  border-radius: 50% ;
+  margin:20px auto ;
+  background-position: center center ;
+  background-size: cover ;
+  background-repeat: no-repeat ;
+}

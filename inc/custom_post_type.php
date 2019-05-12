@@ -13,7 +13,6 @@ if (@$contact == 1) {
   add_action('init', 'sunsetCPT');
   /* change the name columns of cpt message */
   add_filter('manage_sunset-contact_posts_columns', 'my_custom_columns_list');
-
 }
 
 function sunsetCPT()
@@ -46,6 +45,7 @@ function sunsetCPT()
 function my_custom_columns_list($columns)
 {
   $columns['title']     = 'Full Name';
+  
   $columns['author']     = 'email';
     return $columns;
 }

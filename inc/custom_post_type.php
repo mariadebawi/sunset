@@ -82,6 +82,8 @@ function sunset_custom_columns_list($columns, $post_id)
 
 function sunset_contact_add_meta_box()
 {
+  //'side' , 'normal ' : postion of the meta bow
+  // 'heigh , 'default' : win bethabt
   add_meta_box('contact_email', 'User Email', 'sunset_contact_email_callback', 'sunset-contact', 'side');
 }
 

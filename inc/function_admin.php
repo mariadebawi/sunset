@@ -80,10 +80,9 @@ function sunset_custom_settings()
       | | | | CUSTOM CSS    | | | | 
    */
 
-   
-
-
-
+  register_setting('sunset-custom_css', 'custom_css' , 'sanitize_custom_css');
+  add_settings_section('sunset-css-groups', ' Custom CSS', 'sunset_css_section_callback', 'maria_sunset_css');
+  add_settings_field('custom_css_field', 'Insert Your Custom CSS', 'custom_css_callback',  'maria_sunset_css', 'sunset-css-groups');
 
 
 }
@@ -211,6 +210,36 @@ function active_contact_form()
 }
 
 
+/* custom css  option */
+function sunset_css_section_callback(){
+  echo 'Customize Sunset theme with your own CSS ' ;
+}
+function custom_css_callback(){
+   $css = get_option('custom_css');
+   $css = (empty($css) ? "/* Sunset theme custom css*/ " : $css);
+   echo '<div id="customCSS">"'.$css.'"</div>
+   <textarea id="custom_css" name="custom_css" style="display:none ;visibility:hidden ; ">"'.$css.'"</textarea>';
+   /* we used the textearea to secure our data  */
+}
+
+function sanitize_custom_css($input){
+   // more security for our data css
+   $output = esc_textarea($input) ;
+   return $output;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Template Submenu page */
 function sunset_create_page()
@@ -221,7 +250,7 @@ function sunset_create_page()
 
 function sunset_create_sttings_page()
 {
-   echo '<h1> Custom CSS</h1>';
+   require_once(get_template_directory() . '/inc/templates/sunset_custom_css.php');
 }
 
 function sunset_support_page()

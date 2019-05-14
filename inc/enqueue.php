@@ -54,15 +54,22 @@ function sunset_load_scripts()
   wp_enqueue_style('sunset_bootstrap_style');
   wp_deregister_script('jquery'); // delete the default jquery
 
+  //my css style 
+  wp_register_style('sunset_style_css', get_template_directory_uri() . '/css/sunset.css', array(), '1.0.0', 'all');
+  wp_enqueue_style('sunset_style_css');
+
+  // raleway google font 
+  wp_register_style( 'raleway', 'https://fonts.googleapis.com/css?family=Raleway:200,300,500' );
+  wp_enqueue_style( 'raleway');
+
+  //my js 
+  wp_enqueue_script('respond', get_template_directory_uri() . "/js/sunset.js", '', null, true);
+
   //jquery
   wp_register_script('jquery', get_template_directory_uri() . '/js/jquery.js', false, '3.4.1', true);
   wp_enqueue_script('jquery');
 
   //bootstrap js
   wp_enqueue_script('sunset_bootstrap_script', get_template_directory_uri() . "/js/bootstrap.min.js", array('jquery'), '3.4.1', true);
-
-  //my css style 
-  wp_register_style('sunset_style_css', get_template_directory_uri() . '/css/sunset.css', array(), '1.0.0', 'all');
-  wp_enqueue_style('sunset_style_css');
 }
 add_action('wp_enqueue_scripts', 'sunset_load_scripts');

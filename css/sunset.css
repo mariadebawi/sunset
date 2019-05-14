@@ -1,0 +1,14 @@
+/***********************
+    | | |  header   | | |
+******************************/
+.background_image{
+    background-position: center center ;
+    background-size: cover ;
+    background-repeat: no-repeat;
+}
+.header_container{
+    display: block;
+    position: relative;
+    height: 327px ;
+    width: 100% ;
+}

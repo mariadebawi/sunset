@@ -26,3 +26,9 @@ $background = get_option('custom_background');
   if (@$background == 1) {
      add_theme_support('custom-background');
 }
+
+/* activate nav menu option  */
+function sunset_register_nav_menu(){
+   register_nav_menu( 'primary', 'Header Navigation Menu' ) ;
+}
+add_action('after_setup_theme' , 'sunset_register_nav_menu');

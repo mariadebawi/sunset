@@ -57,7 +57,10 @@ function sunset_load_scripts()
   //my css style 
   wp_register_style('sunset_style_css', get_template_directory_uri() . '/css/sunset.css', array(), '1.0.0', 'all');
   wp_enqueue_style('sunset_style_css');
-
+ 
+  wp_register_style('sunset_style_icon', get_template_directory_uri() . '/css/sunset_icon.css', array(), '1.0.0', 'all');
+  wp_enqueue_style('sunset_style_icon');
+  
   // raleway google font 
   wp_register_style( 'raleway', 'https://fonts.googleapis.com/css?family=Raleway:200,300,500' );
   wp_enqueue_style( 'raleway');

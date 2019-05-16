@@ -1,0 +1,169 @@
+/***********************
+    | | |  Generic   | | |
+******************************/
+body {
+    font-family: "releway", "helvatica Neue", "helvatica", Arial, verdana, sans-serif;
+}
+
+.background_image {
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.table {
+    display: table;
+    width: 100%;
+    height: 100%;
+
+    .table-cell {
+        display: table-cell;
+        vertical-align: middle;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+/***********************
+      | | |  header   | | |
+  ******************************/
+.header_container {
+    display: block;
+    position: relative;
+    height: 327px;
+    width: 100%;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+h1.site-title {
+    /* color: #fff !important;*/
+    margin: 0;
+}
+
+h2.site-description {
+    /* color: #fff !important;*/
+    font-size: 14px;
+    margin-top: 0.4em;
+    /* em % fz*/
+}
+
+.nav-container {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+/** navbar **/
+.navbar-sunset {
+    border: none;
+    min-height: auto;
+    margin-bottom: 0;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    ul {
+        float: none !important;
+    }
+    li {
+        float: none !important;
+        display: inline-block;
+
+        &.active {
+            /* active page after used walker.php*/
+            opacity: 1;
+
+            a::after {
+                content: "";
+                position: absolute;
+                display: block;
+                left: 15px;
+                right: 15px;
+                height: 2px;
+                background: #fff;
+                opacity: 1;
+                @include transform(translateY(0));
+            }
+        }
+        &.open {
+            a {
+                opacity: 1;
+                background-color: rgba(0, 0, 0, 0.1) !important;
+
+                &:after {
+                    @include transform(translateY(10px));
+                    opacity: 0 !important;
+                }
+                &:hover,
+                &:focus,
+                &:visited {
+                    background-color: rgba(0, 0, 0, 0.1) !important;
+                    &:after {
+                        @include transform(translateY(10px));
+                        opacity: 0 !important;
+                    }
+                }
+            }
+        }
+        a {
+            text-transform: uppercase;
+            color: #fff;
+            font-size: 12px;
+            opacity: 0.8;
+            letter-spacing: 0.05em;
+            background: none;
+            @include animate(opacity, 320ms);
+
+            &:hover,
+            &:focus,
+            &:visited {
+                background: none;
+                opacity: 1;
+
+                &::after {
+                    opacity: 1;
+                    @include transform(translateY(0))
+                }
+            }
+            &::after {
+                content: "";
+                position: absolute;
+                display: block;
+                left: 15px;
+                right: 15px;
+                height: 2px;
+                background: #fff;
+                @include animate(all, 320ms);
+                opacity: 0;
+                @include transform(translateY(10px));
+            }
+        }
+        ul.dropdown-menu { border: 0; border-radius: 0; background: rgba(0,0,0,0.75); 
+			li { display: block; 
+				a {
+					&:hover,
+					&:focus,
+					&:visited { background: rgba(0,0,0,0.25)!important; color: #fff; }
+				}
+            }
+            .active{
+                a &:hover
+                 &:focus 
+                 &:visited{
+                    color: #fff;
+                    text-decoration: none !important;
+                    /* background: rgba(0, 0, 0, 0.25) !important; */
+                    outline: 0;
+                    background: none !important;
+                }
+            }
+		}
+    }
+}
+
+
+

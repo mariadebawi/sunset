@@ -32,3 +32,15 @@ function sunset_register_nav_menu(){
    register_nav_menu( 'primary', 'Header Navigation Menu' ) ;
 }
 add_action('after_setup_theme' , 'sunset_register_nav_menu');
+
+/* active the upload picture */
+add_theme_support('post-thumbnails');
+
+function sunset_posted_meta(){
+   return "category name and date publishing" ;
+}
+
+function sunset_posted_footer() {
+   return "tags and cmtr" ;
+
+}

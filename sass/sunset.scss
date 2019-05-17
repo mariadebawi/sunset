@@ -1,29 +1,24 @@
+/* pour mieux comprendre ou apprendre voir img/sass.png*/
+
 /*
-	Mixins
+	imports
 	------------------------------------------------
 */
+@import 'base/variable.scss';
+/* variables */
+@import 'base/mixins.scss';
+/* mixins*/
 
-@mixin animate ($attr, $time) {
-    -webkit-transition: $attr $time ease;
-    -moz-transition: $attr $time ease;
-    -ms-transition: $attr $time ease;
-    -o-transition: $attr $time ease;
-    transition: $attr $time ease;
-}
 
-@mixin transform($val) {
-    -webkit-transform: $val;
-    -moz-transform: $val;
-    -ms-transform: $val;
-    -o-transform: $val;
-    transform: $val;
-}
+
+
+
 
 /***********************
     | | |  Generic   | | |
 ******************************/
 body {
-    font-family: "releway", "helvatica Neue", "helvatica", Arial, verdana, sans-serif;
+    font-family: $font-body;
 }
 
 .background_image {
@@ -42,6 +37,16 @@ body {
         vertical-align: middle;
         width: 100%;
         height: 100%;
+    }
+}
+
+a {
+    color: $primary-color;
+
+    &:hover,
+    &:focus {
+        text-decoration: none;
+        @include animate(color, 320ms);
     }
 }
 
@@ -196,13 +201,175 @@ h2.site-description {
 
                     &:hover &:focus &:visited {
                         color: #fff;
-                        text-decoration: none !important;
                         /* background: rgba(0, 0, 0, 0.25) !important; */
                         outline: 0;
                         background: none !important;
                     }
                 }
             }
+        }
+    }
+}
+
+/***********************************
+      | | |  Standard post   | | |
+***********************************/
+article {
+    margin-bottom: 80px;
+}
+
+h1 {
+    font-size: 48px;
+    font-weight: 200;
+    color: $primary-color;
+
+    &.entry_title {
+        line-height: 1.5em;
+        margin: 40px 0 0;
+        padding: 0;
+
+        a {
+            color: $primary-color;
+
+            &:hover,
+            &:focus {
+                color: $primary-color;
+            }
+        }
+
+        &::before,
+        &::after {
+            content: '~';
+            display: inline-block;
+            position: relative;
+        }
+
+        &::before {
+            margin-right: 10px;
+        }
+
+        &::after {
+            margin-left: 10px;
+        }
+    }
+}
+
+.entry_meta {
+    font-size: 13px;
+    font-weight: 300;
+    color: $light-grey;
+    margin-bottom: 20px;
+
+    a {
+        font-weight: 500;
+        color: $light-grey;
+
+        &:hover,
+        &:focus {
+            color: $dark-grey;
+        }
+    }
+}
+
+.standard-feature-link {
+    display: block;
+    position: relative;
+
+    &:hover,
+    &:focus {
+        .standard-feature {
+            &::after {
+                /* eliminer overlay*/
+                background-color: rgba(0, 0, 0, 0);
+            }
+        }
+    }
+}
+
+.standard-feature {
+    height: 330px;
+    display: block;
+    position: relative;
+
+    &::after {
+        /*overlay*/
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.35);
+        box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.35);
+        @include animate(background-color, 320ms);
+
+    }
+}
+
+.entry_expert {
+    margin: 20px 0 16px;
+
+    p {
+        font-size: 17px;
+        line-height: 1.5em;
+        font-weight: 300;
+        letter-spacing: 0.02em;
+    }
+}
+
+.button-container {
+    margin-bottom: 30px;
+}
+
+.btn-sunset {
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 300;
+    color: $light-grey;
+    padding: 8px 12px;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+    border: 1px solid $light-grey;
+    background-color: transparent;
+    @include animate(all, 320ms);
+
+    &:hover,
+    &:focus {
+        color: #fff;
+        border-color: $dark-grey;
+        background-color: $dark-grey;
+    }
+}
+
+.entry_footer {
+    padding: 5px 10px;
+    border-bottom: 4px solid $lighter-grey;
+    color: $light-grey;
+    text-transform: uppercase;
+
+    a {
+        color: $light-grey;
+        display: inline-block;
+        font-size: 12px;
+    }
+
+    .tags-list {
+        .icon {
+            margin-right: 10px;
+        }
+
+        a {
+            padding: 0 4px;
+        }
+    }
+
+    .comments-link {
+        .icon {
+            margin-left: 10px;
         }
     }
 }

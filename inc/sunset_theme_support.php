@@ -74,9 +74,18 @@ function sunset_posted_footer()
       } else {
          $comments = __('1 Comment');
       }
-      $comments = '<a href="' . get_comments_link() . '">' . $comments . '<span class="icon sunset-comment"></span></a>';
+      $comments = '<a class="comments-link" href="' . get_comments_link() . '">' . $comments . '<span class="icon sunset-comment"></span></a>';
    } else {
       $comments = __('Comments Closed');
    }
-   return "<div class='post-footer-container'><div class='row'><div class='col-xs-12 col-sm-6'>" . get_the_tag_list("<div class='tags-list'><span class='icon sunset-tag'></span>", " ", "</div>") . '</div><div class="col-xs-12 col-sm-6">' . $comments . "</div></div>";
+   return "
+   <div class='post-footer-container'>
+     <div class='row'>
+     <div class='col-xs-12 col-sm-12 col-md-6 '>"
+      . get_the_tag_list("<div class='tags-list'>
+         <span class='icon sunset-tag'></span>", " ", "</div>") .
+     '</div>
+     <div class="col-xs-12 col-sm-12 col-md-6 text-right">' . $comments . "
+     </div>
+   </div>";
 }

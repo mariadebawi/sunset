@@ -424,4 +424,14 @@ h1.entry_title::after {
   height: 160px !important;
 }
 
+/***********************************
+      | | |  vedio post   | | |
+***********************************/
+.sunset-format-video header {
+  margin-top: 40px;
+}
+.sunset-format-video h1.entry_title {
+  margin-top: 20px;
+}
+
 /*# sourceMappingURL=sunset.css.map */

@@ -447,3 +447,18 @@ h1 {
         }
     }
 }
+
+
+/***********************************
+      | | |  vedio post   | | |
+***********************************/
+.sunset-format-video {
+    header{
+        margin-top: 40px ;
+    }
+    h1 {
+        &.entry_title {
+            margin-top: 20px ;
+        }
+    }
+}

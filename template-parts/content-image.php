@@ -5,7 +5,7 @@
     ---- Standart post title--------
  */
 ?>
-<?php ?>
+<?php /* all my function in /sunset_theme_support.php  */?>
 <article id="post-<?php the_ID(); ?>" <?php post_class('sunset-format-image'); ?>>
   <?php $feature_image = sunset_get_attchment() ;?>
     <header class="entry_header text-center background_image" style='background-image:url(<?php echo $feature_image ?>);'>

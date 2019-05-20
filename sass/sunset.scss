@@ -380,7 +380,7 @@ h1 {
     margin-top: 50px;
 
     .entry_header {
-        height: 600px !important;
+        height: 400px !important;
         @extend %text-shadow;
         position: relative ;
     }
@@ -402,13 +402,12 @@ h1 {
     .entry_expert {
         &.image-caption {
             position: absolute;
-            top: 0;
             left: 0;
             right: 0;
             bottom: 0;
             @extend %background-gradient;
             p {
-                margin: 40px 0;
+                margin: 20px 0;
             }
         }
     }

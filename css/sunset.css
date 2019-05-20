@@ -381,10 +381,12 @@ h1.entry_title::after {
 .sunset-format-image .entry_header {
   color: #fff;
 }
-.sunset-format-image h1 a,
+.sunset-format-image h1 a, .entry_title a .sunset-format-image h1:hover,
 .sunset-format-image .entry_meta a,
-.sunset-format-image .entry_header a {
-  color: #fff;
+.entry_title a .sunset-format-image .entry_meta:hover,
+.sunset-format-image .entry_header a,
+.entry_title a .sunset-format-image .entry_header:hover {
+  color: #fff !important;
 }
 .sunset-format-image h1 {
   padding-top: 10px;

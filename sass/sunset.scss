@@ -390,8 +390,9 @@ h1 {
     .entry_header {
         color: #fff;
 
-        a {
-            color: #fff;
+        a,
+        .entry_title a &:hover {
+            color: #fff !important;
         }
     }
 
@@ -407,6 +408,7 @@ h1 {
             bottom: 0;
             @extend %background-gradient;
             margin: 0;
+
             p {
                 margin: 20px 0;
             }
@@ -421,23 +423,25 @@ h1 {
 .sunset-format-audio {
     h1 {
         font-size: 30px;
+
         &.entry_title {
             display: inline-block;
             margin-right: 20px;
-        
+
             &::before,
             &::after {
-                display:none;
+                display: none;
             }
         }
     }
-    .entry_meta{
+
+    .entry_meta {
         display: inline-block;
-        margin-bottom: 0;  
+        margin-bottom: 0;
     }
-   
+
     .entry_content {
-        Iframe{
+        Iframe {
             width: 100% !important;
             height: 160px !important;
         }

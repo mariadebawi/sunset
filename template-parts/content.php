@@ -15,11 +15,10 @@
     </header>
     <div class="entry_content">
 
-      <?php if(has_post_thumbnail()) :
-        $feature_image = wp_get_attachment_url(get_post_thumbnail_id(get_the_id()));
+      <?php if(sunset_get_attchment() ) :
       ?>
       <a  class="standard-feature-link" href='<?php the_permalink() ; ?>'>
-        <div class="standard-feature background_image" style="background-image:url(<?php echo $feature_image ?>);"> </div>
+        <div class="standard-feature background_image" style="background-image:url(<?php echo sunset_get_attchment() ;  ?>);"> </div>
       </a>
         <?php endif ; ?>
 

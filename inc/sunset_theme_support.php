@@ -113,3 +113,12 @@ function sunset_get_attchment()
    endif;
    return $output;
 }
+
+function sunset_get_embedded_media($type = array())/* type mp3 or mp4 ..... */
+{
+   /* copy link from this link and paste it in the post "https://soundcloud.com/polo-g/polo-g-feat-lil-tjay-pop-out" */
+   $content = do_shortcode(apply_filters('the_content', get_the_content()));
+   $embed = get_media_embedded_in_content($content, $type);
+   $output = str_replace('?visual=true', '?visual=false', $embed[0]); /* we shoud always do this with audio  */
+   return $output;
+}

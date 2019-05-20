@@ -373,7 +373,7 @@ h1.entry_title::after {
   margin-top: 50px;
 }
 .sunset-format-image .entry_header {
-  height: 600px !important;
+  height: 400px !important;
   position: relative;
 }
 .sunset-format-image h1,
@@ -391,13 +391,35 @@ h1.entry_title::after {
 }
 .sunset-format-image .entry_expert.image-caption {
   position: absolute;
-  top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+  margin: 0;
 }
 .sunset-format-image .entry_expert.image-caption p {
-  margin: 40px 0;
+  margin: 20px 0;
+}
+
+/***********************************
+      | | |audio  post   | | |
+***********************************/
+.sunset-format-audio h1 {
+  font-size: 30px;
+}
+.sunset-format-audio h1.entry_title {
+  display: inline-block;
+  margin-right: 20px;
+}
+.sunset-format-audio h1.entry_title::before, .sunset-format-audio h1.entry_title::after {
+  display: none;
+}
+.sunset-format-audio .entry_meta {
+  display: inline-block;
+  margin-bottom: 0;
+}
+.sunset-format-audio .entry_content Iframe {
+  width: 100% !important;
+  height: 160px !important;
 }
 
 /*# sourceMappingURL=sunset.css.map */

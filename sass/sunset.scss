@@ -382,7 +382,7 @@ h1 {
     .entry_header {
         height: 400px !important;
         @extend %text-shadow;
-        position: relative ;
+        position: relative;
     }
 
     h1,
@@ -406,9 +406,40 @@ h1 {
             right: 0;
             bottom: 0;
             @extend %background-gradient;
+            margin: 0;
             p {
                 margin: 20px 0;
             }
+        }
+    }
+}
+
+
+/***********************************
+      | | |audio  post   | | |
+***********************************/
+.sunset-format-audio {
+    h1 {
+        font-size: 30px;
+        &.entry_title {
+            display: inline-block;
+            margin-right: 20px;
+        
+            &::before,
+            &::after {
+                display:none;
+            }
+        }
+    }
+    .entry_meta{
+        display: inline-block;
+        margin-bottom: 0;  
+    }
+   
+    .entry_content {
+        Iframe{
+            width: 100% !important;
+            height: 160px !important;
         }
     }
 }

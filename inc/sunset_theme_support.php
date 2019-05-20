@@ -84,8 +84,32 @@ function sunset_posted_footer()
      <div class='col-xs-12 col-sm-12 col-md-6 '>"
       . get_the_tag_list("<div class='tags-list'>
          <span class='icon sunset-tag'></span>", " ", "</div>") .
-     '</div>
+      '</div>
      <div class="col-xs-12 col-sm-12 col-md-6 text-right">' . $comments . "
      </div>
    </div>";
+}
+
+function sunset_get_attchment()
+{
+   $output = '';
+   if (has_post_thumbnail()) : /* upload a picture  */
+      $output = wp_get_attachment_url(get_post_thumbnail_id(get_the_id()));
+   else :
+      /* not upload picture  */
+      /* so  get the picture from the media */
+      $attachments = get_posts(array(
+         'post_type' => 'attachment',
+         'numberposts' => 1,
+         'post_parents' => get_the_ID()
+      ));
+      //  var_dump($attachments);
+      if ($attachments) :
+         foreach ($attachments as $attachment) :
+            $output = wp_get_attachment_url($attachment->ID);
+         endforeach;
+      endif;
+
+   endif;
+   return $output;
 }

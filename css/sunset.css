@@ -4,7 +4,32 @@
 	------------------------------------------------
 */
 /* variables */
+/***********************
+    | | |  Variables   | | |
+******************************/
 /* mixins*/
+/***********************
+    | | |  functions  | | |
+******************************/
+/* placeholder*/
+/***********************
+    | | |  placeholders   | | |
+******************************/
+.sunset-format-image .entry_header, .header_container {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.sunset-format-image .entry_expert.image-caption {
+  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#00000000", endColorstr="#80000000",GradientType=0 );
+  /* IE6-9 */
+}
+
 /***********************
     | | |  Generic   | | |
 ******************************/
@@ -50,7 +75,6 @@ a:hover, a:focus {
   position: relative;
   height: 327px;
   width: 100%;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
 
 h1.site-title {
@@ -340,6 +364,40 @@ h1.entry_title::after {
 }
 .entry_footer .comments-link .icon {
   margin-left: 10px;
+}
+
+/***********************************
+      | | |  Image post   | | |
+***********************************/
+.sunset-format-image {
+  margin-top: 50px;
+}
+.sunset-format-image .entry_header {
+  height: 600px !important;
+  position: relative;
+}
+.sunset-format-image h1,
+.sunset-format-image .entry_meta,
+.sunset-format-image .entry_header {
+  color: #fff;
+}
+.sunset-format-image h1 a,
+.sunset-format-image .entry_meta a,
+.sunset-format-image .entry_header a {
+  color: #fff;
+}
+.sunset-format-image h1 {
+  padding-top: 10px;
+}
+.sunset-format-image .entry_expert.image-caption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.sunset-format-image .entry_expert.image-caption p {
+  margin: 40px 0;
 }
 
 /*# sourceMappingURL=sunset.css.map */

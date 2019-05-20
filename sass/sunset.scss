@@ -4,13 +4,12 @@
 	imports
 	------------------------------------------------
 */
-@import 'base/variable.scss';
 /* variables */
-@import 'base/mixins.scss';
+@import 'base/variable.scss';
 /* mixins*/
-
-
-
+@import 'base/mixins.scss';
+/* placeholder*/
+@import 'base/placeholder.scss';
 
 
 
@@ -58,7 +57,7 @@ a {
     position: relative;
     height: 327px;
     width: 100%;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    @extend %text-shadow;
 }
 
 h1.site-title {
@@ -370,6 +369,47 @@ h1 {
     .comments-link {
         .icon {
             margin-left: 10px;
+        }
+    }
+}
+
+/***********************************
+      | | |  Image post   | | |
+***********************************/
+.sunset-format-image {
+    margin-top: 50px;
+
+    .entry_header {
+        height: 600px !important;
+        @extend %text-shadow;
+        position: relative ;
+    }
+
+    h1,
+    .entry_meta,
+    .entry_header {
+        color: #fff;
+
+        a {
+            color: #fff;
+        }
+    }
+
+    h1 {
+        padding-top: 10px;
+    }
+
+    .entry_expert {
+        &.image-caption {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            @extend %background-gradient;
+            p {
+                margin: 40px 0;
+            }
         }
     }
 }

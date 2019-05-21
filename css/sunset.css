@@ -15,7 +15,7 @@
 /***********************
     | | |  placeholders   | | |
 ******************************/
-.sunset-format-image .entry_header, .header_container {
+.sunset-format-gallery .carousel-control, .sunset-format-image .entry_header, .header_container {
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
 
@@ -447,6 +447,94 @@ h1.entry_title::after {
 .sunset-format-gallery .standard-feature::after {
   /* eliminer overlay*/
   background-color: transparent !important;
+}
+.sunset-format-gallery .carousel-control {
+  background: none;
+  background-image: none;
+  opacity: 1;
+  filter: alpha(opacity=100);
+  -webkit-filter: alpha(opacity=100);
+  font-size: 30px;
+  width: auto;
+}
+.sunset-format-gallery .carousel-control .preview-container {
+  display: block;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0);
+  -webkit-transition: background-color 320ms ease;
+  -moz-transition: background-color 320ms ease;
+  -ms-transition: background-color 320ms ease;
+  -o-transition: background-color 320ms ease;
+  transition: background-color 320ms ease;
+  line-height: 0;
+  position: relative;
+}
+.sunset-format-gallery .carousel-control .preview-container .thumbnail-container {
+  position: absolute;
+  display: block;
+  height: 68px;
+  width: 68px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  background: #999;
+  top: 1px;
+  -webkit-transition: transform 320ms ease;
+  -moz-transition: transform 320ms ease;
+  -ms-transition: transform 320ms ease;
+  -o-transition: transform 320ms ease;
+  transition: transform 320ms ease;
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  transform: scale(0);
+}
+.sunset-format-gallery .carousel-control.right .preview-container {
+  padding-left: 80px;
+  border-radius: 35.5px 0 0 35.5px;
+  -webkit-border-radius: 35.5px 0 0 35.5px;
+  /* border-raduis : top-left , top-right, bottom-right,bottom-left*/
+  -moz-border-radius: 35.5px 0 0 35.5px;
+  -ms-border-radius: 35.5px 0 0 35.5px;
+  -o-border-radius: 35.5px 0 0 35.5px;
+}
+.sunset-format-gallery .carousel-control.right .preview-container .thumbnail-container {
+  left: 1px;
+}
+.sunset-format-gallery .carousel-control.right:hover .preview-container, .sunset-format-gallery .carousel-control.right:focus .preview-container {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.sunset-format-gallery .carousel-control.right:hover .preview-container .thumbnail-container, .sunset-format-gallery .carousel-control.right:focus .preview-container .thumbnail-container {
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+}
+.sunset-format-gallery .carousel-control.left .preview-container {
+  padding-right: 80px;
+  border-radius: 0 35.5px 35.5px 0;
+  /* border-raduis : top-left , top-right, bottom-right,bottom-left*/
+  -webkit-border-radius: 0 35.5px 35.5px 0;
+  -moz-border-radius: 0 35.5px 35.5px 0;
+  -ms-border-radius: 0 35.5px 35.5px 0;
+  -o-border-radius: 0 35.5px 35.5px 0;
+}
+.sunset-format-gallery .carousel-control.left .preview-container .thumbnail-container {
+  right: 1px;
+}
+.sunset-format-gallery .carousel-control.left:hover .preview-container {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.sunset-format-gallery .carousel-control.left:hover .preview-container .thumbnail-container {
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
 }
 
 /*# sourceMappingURL=sunset.css.map */

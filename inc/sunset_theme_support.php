@@ -101,7 +101,7 @@ function sunset_get_attchment($num = 1)
       $attachments = get_posts(array(
          'post_type' => 'attachment',
          'numberposts' => $num,
-         'post_parents' => get_the_ID()
+         'post_parent' => get_the_ID()
       ));
       //  var_dump($attachments);
       if ($attachments && $num == 1) /* not have a thumbnails picture */ :

@@ -476,11 +476,102 @@ h1 {
             margin-top: 20px;
         }
     }
+
     .standard-feature {
-        height: 300px ;
+        height: 300px;
+
         &::after {
             /* eliminer overlay*/
-            background-color: transparent !important ;
+            background-color: transparent !important;
         }
+    }
+
+    .carousel-control {
+        background: none;
+        background-image: none;
+        opacity: 1;
+        filter: alpha(opacity=100);
+        -webkit-filter: alpha(opacity=100);
+        font-size: 30px;
+        width: auto;
+        @extend %text-shadow;
+
+        .preview-container {
+            display: block;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0);
+            @include animate(background-color, 320ms);
+            line-height: 0;
+            position: relative;
+
+            .thumbnail-container {
+                position: absolute;
+                display: block;
+                height: 68px;
+                width: 68px;
+                border-radius: 50%;
+                -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;
+                -ms-border-radius: 50%;
+                -o-border-radius: 50%;
+                background: #999;
+                top: 1px;
+                @include animate(transform, 320ms);
+                @include transform(scale(0));
+
+            }
+        }
+
+        &.right {
+            .preview-container {
+                padding-left: 80px;
+                border-radius: 35.5px 0 0 35.5px;
+                -webkit-border-radius: 35.5px 0 0 35.5px;
+                /* border-raduis : top-left , top-right, bottom-right,bottom-left*/
+                -moz-border-radius: 35.5px 0 0 35.5px;
+                -ms-border-radius: 35.5px 0 0 35.5px;
+                -o-border-radius: 35.5px 0 0 35.5px;
+
+                .thumbnail-container {
+                    left: 1px;
+                }
+            }
+            &:hover,
+            &:focus {
+             .preview-container {
+                background-color: rgba(0, 0, 0, 0.8);
+                .thumbnail-container { 
+                    @include transform(scale(1));
+                }
+              }
+            }
+        }
+
+        &.left {
+            .preview-container {
+                padding-right: 80px;
+                border-radius: 0 35.5px 35.5px 0;
+                /* border-raduis : top-left , top-right, bottom-right,bottom-left*/
+                -webkit-border-radius: 0 35.5px 35.5px 0;
+                -moz-border-radius: 0 35.5px 35.5px 0;
+                -ms-border-radius: 0 35.5px 35.5px 0;
+                -o-border-radius: 0 35.5px 35.5px 0;
+
+                .thumbnail-container {
+                    right: 1px;
+                }
+            }
+
+            &:hover
+             {
+             .preview-container {
+                background-color: rgba(0, 0, 0, 0.8);
+                .thumbnail-container { 
+                    @include transform(scale(1));
+                }
+              }
+            }
+        }
+
     }
 }

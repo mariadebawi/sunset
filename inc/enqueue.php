@@ -58,9 +58,14 @@ function sunset_load_scripts()
   wp_register_style('sunset_style_css', get_template_directory_uri() . '/css/sunset.css', array(), '1.0.0', 'all');
   wp_enqueue_style('sunset_style_css');
  
+  // sunset icon
   wp_register_style('sunset_style_icon', get_template_directory_uri() . '/css/sunset_icon.css', array(), '1.0.0', 'all');
   wp_enqueue_style('sunset_style_icon');
   
+  //font awsome 
+  wp_register_style('font-awesome', get_template_directory_uri() . '/css/font-awesome/css/font-awesome.css', array(), '4.7.0');
+  wp_enqueue_style("font-awesome");
+
   // raleway google font 
   wp_register_style( 'raleway', 'https://fonts.googleapis.com/css?family=Raleway:200,300,400,500' );
   wp_enqueue_style( 'raleway');

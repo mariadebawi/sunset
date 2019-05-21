@@ -73,7 +73,7 @@ a:hover, a:focus {
 .header_container {
   display: block;
   position: relative;
-  height: 327px;
+  height: 250px;
   width: 100%;
 }
 
@@ -229,7 +229,11 @@ h2.site-description {
       | | |  Standard post   | | |
 ***********************************/
 article {
-  margin-bottom: 80px;
+  padding-bottom: 40px;
+  padding-top: 40px;
+}
+article:first-child {
+  padding-top: 80px;
 }
 
 h1 {
@@ -239,7 +243,7 @@ h1 {
 }
 h1.entry_title {
   line-height: 1.5em;
-  margin: 40px 0 0;
+  margin: 0;
   padding: 0;
 }
 h1.entry_title a {
@@ -427,11 +431,22 @@ h1.entry_title::after {
 /***********************************
       | | |  vedio post   | | |
 ***********************************/
-.sunset-format-video header {
-  margin-top: 40px;
-}
 .sunset-format-video h1.entry_title {
   margin-top: 20px;
+}
+
+/***********************************
+      | | |  Gallery post   | | |
+***********************************/
+.sunset-format-gallery h1.entry_title {
+  margin-top: 20px;
+}
+.sunset-format-gallery .standard-feature {
+  height: 300px;
+}
+.sunset-format-gallery .standard-feature::after {
+  /* eliminer overlay*/
+  background-color: transparent !important;
 }
 
 /*# sourceMappingURL=sunset.css.map */

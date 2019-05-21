@@ -26,9 +26,8 @@
 </head>
 
 <body <?php body_class(); ?>>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-xs-12">
                 <header class="header_container background_image text-center" style="background-image:url(<?php header_image(); ?>); ">
                     <div class="header-content table ">
                         <div class="table-cell">
@@ -53,6 +52,5 @@
                         </div>
                     </div>
                 </header>
-            </div>
         </div>
     </div>

@@ -90,24 +90,26 @@ function sunset_posted_footer()
    </div>";
 }
 
-function sunset_get_attchment()
+function sunset_get_attchment($num = 1)
 {
    $output = '';
-   if (has_post_thumbnail()) : /* upload a picture  */
+   if (has_post_thumbnail() && $num == 1) : /* upload a picture and not have a media picture */
       $output = wp_get_attachment_url(get_post_thumbnail_id(get_the_id()));
    else :
       /* not upload picture  */
       /* so  get the picture from the media */
       $attachments = get_posts(array(
          'post_type' => 'attachment',
-         'numberposts' => 1,
+         'numberposts' => $num,
          'post_parents' => get_the_ID()
       ));
       //  var_dump($attachments);
-      if ($attachments) :
+      if ($attachments && $num == 1) /* not have a thumbnails picture */ :
          foreach ($attachments as $attachment) :
             $output = wp_get_attachment_url($attachment->ID);
          endforeach;
+       elseif($attachments && $num > 1):
+         $output = $attachments ;
       endif;
 
    endif;

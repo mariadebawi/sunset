@@ -597,3 +597,45 @@ h1 {
         }
     }
 }
+
+
+
+/***********************************
+      | | |  Quote  post   | | |
+***********************************/
+.quote_post_format {
+    .quote_content {
+        font-size: 42px;
+        font-weight: 100;
+        line-height: 1.3em;
+        letter-spacing: 0.03em;
+
+        a:hover {
+            color: #000;
+        }
+
+        &::after,
+        &::before {
+            content: '';
+            display: inline-block;
+            position: relative;
+            color: #ccc;
+        }
+
+        &::before {
+            content: '“'
+                /* Press-and-hold the ALT key and then type 0147*/
+        }
+
+        &::after {
+            content: '”'
+                /* Press-and-hold the ALT key and then type 0148*/
+        }
+    }
+
+    .quote_author {
+        color: $light-grey;
+        font-size: 12px;
+        letter-spacing: 0.06em;
+    }
+}

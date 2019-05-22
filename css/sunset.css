@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* pour mieux comprendre ou apprendre voir img/sass.png*/
 /*
 	imports
@@ -557,6 +558,36 @@ h1.entry_title::after {
   -ms-transform: translateY(0);
   -o-transform: translateY(0);
   transform: translateY(0);
+}
+
+/***********************************
+      | | |  Quote  post   | | |
+***********************************/
+.quote_post_format .quote_content {
+  font-size: 42px;
+  font-weight: 100;
+  line-height: 1.3em;
+  letter-spacing: 0.03em;
+}
+.quote_post_format .quote_content a:hover {
+  color: #000;
+}
+.quote_post_format .quote_content::after, .quote_post_format .quote_content::before {
+  content: "";
+  display: inline-block;
+  position: relative;
+  color: #ccc;
+}
+.quote_post_format .quote_content::before {
+  content: "“";
+}
+.quote_post_format .quote_content::after {
+  content: "”";
+}
+.quote_post_format .quote_author {
+  color: #898989;
+  font-size: 12px;
+  letter-spacing: 0.06em;
 }
 
 /*# sourceMappingURL=sunset.css.map */

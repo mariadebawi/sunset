@@ -1,5 +1,9 @@
 $ = jQuery.noConflict();
 
+/* ===============================
+    Add a varible to a div 
+ ================================== */
+
 $(function () {
     /* when the document is ready  */
     sunset_get_thumbn('.sunset-carousel-thumb');

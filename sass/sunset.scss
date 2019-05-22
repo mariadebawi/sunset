@@ -49,6 +49,34 @@ a {
     }
 }
 
+.entry_expert {
+    margin: 20px 0 16px;
+
+    p {
+        font-size: 17px;
+        line-height: 1.5em;
+        font-weight: 300;
+        letter-spacing: 0.02em;
+        text-transform: capitalize;
+    }
+
+    &.image-caption {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        @extend %background-gradient;
+        margin: 0;
+
+        p {
+            margin: 40px 0;
+            color: #fff;
+            font-size: 14px;
+
+        }
+    }
+}
+
 /***********************
       | | |  header   | | |
   ******************************/
@@ -311,16 +339,7 @@ h1 {
     }
 }
 
-.entry_expert {
-    margin: 20px 0 16px;
 
-    p {
-        font-size: 17px;
-        line-height: 1.5em;
-        font-weight: 300;
-        letter-spacing: 0.02em;
-    }
-}
 
 .button-container {
     margin-bottom: 30px;
@@ -405,20 +424,6 @@ h1 {
         padding-top: 10px;
     }
 
-    .entry_expert {
-        &.image-caption {
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            @extend %background-gradient;
-            margin: 0;
-
-            p {
-                margin: 20px 0;
-            }
-        }
-    }
 }
 
 
@@ -536,14 +541,15 @@ h1 {
                     left: 1px;
                 }
             }
-            &:hover,
-            &:focus {
-             .preview-container {
-                background-color: rgba(0, 0, 0, 0.8);
-                .thumbnail-container { 
-                    @include transform(scale(1));
+
+            &:hover {
+                .preview-container {
+                    background-color: rgba(0, 0, 0, 0.8);
+
+                    .thumbnail-container {
+                        @include transform(scale(1));
+                    }
                 }
-              }
             }
         }
 
@@ -562,16 +568,32 @@ h1 {
                 }
             }
 
-            &:hover
-             {
-             .preview-container {
-                background-color: rgba(0, 0, 0, 0.8);
-                .thumbnail-container { 
-                    @include transform(scale(1));
+            &:hover {
+                .preview-container {
+                    background-color: rgba(0, 0, 0, 0.8);
+
+                    .thumbnail-container {
+                        @include transform(scale(1));
+                    }
                 }
-              }
             }
         }
 
+    }
+
+    .entry_expert {
+        &.image-caption {
+            @include animate(transform, 320ms);
+            @include transform(translateY(100%));
+        }
+    }
+
+    &:hover {
+        .entry_expert {
+            &.image-caption {
+                @include transform(translateY(0));
+            }
+
+        }
     }
 }

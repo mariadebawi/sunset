@@ -108,23 +108,51 @@ function sunset_get_attchment($num = 1)
          foreach ($attachments as $attachment) :
             $output = wp_get_attachment_url($attachment->ID);
          endforeach;
-       elseif($attachments && $num > 1):
-         $output = $attachments ;
+      elseif ($attachments && $num > 1) :
+         $output = $attachments;
       endif;
 
    endif;
    return $output;
 }
 
-function sunset_get_embedded_media($type = array())/* type mp3 or mp4 ..... */
+function sunset_get_embedded_media($type = array()) /* type mp3 or mp4 ..... */
 {
    /* copy link from this link and paste it in the post "https://soundcloud.com/polo-g/polo-g-feat-lil-tjay-pop-out" */
    $content = do_shortcode(apply_filters('the_content', get_the_content()));
    $embed = get_media_embedded_in_content($content, $type);
-      if(in_array('audio' , $type)): 
-         $output = str_replace('?visual=true', '?visual=false', $embed[0]); /* we shoud always do this with audio  */
-      else :
-         $output = $embed[0] ; // the postion
-      endif ; 
-    return $output;
+   if (in_array('audio', $type)) :
+      $output = str_replace('?visual=true', '?visual=false', $embed[0]); /* we shoud always do this with audio  */
+   else :
+      $output = $embed[0]; // the postion
+   endif;
+   return $output;
+}
+
+function sunset_get_bs_slides( $attachments ){
+	
+	$output = array();
+	$count = count($attachments)-1;
+	
+	for( $i = 0; $i <= $count; $i++ ): 
+	
+		$active = ( $i == 0 ? ' active' : '' );
+		
+		$n = ( $i == $count ? 0 : $i+1 );
+		$nextImg = wp_get_attachment_thumb_url( $attachments[$n]->ID );
+		$p = ( $i == 0 ? $count : $i-1 );
+		$prevImg = wp_get_attachment_thumb_url( $attachments[$p]->ID );
+		
+		$output[$i] = array( 
+			'class'		=> $active, 
+			'url'		=> wp_get_attachment_url( $attachments[$i]->ID ),
+			'next_img'	=> $nextImg,
+			'prev_img'	=> $prevImg,
+			'caption'	=> $attachments[$i]->post_excerpt
+		);
+	
+	endfor;
+	
+	return $output;
+	
 }

@@ -590,4 +590,31 @@ h1.entry_title::after {
   letter-spacing: 0.06em;
 }
 
+/***********************************
+      | | |  link format   post   | | |
+***********************************/
+.sunset-link-post-format h1.entry_title::before, .sunset-link-post-format h1.entry_title::after {
+  display: none;
+}
+.sunset-link-post-format h1.entry_title a {
+  display: block;
+}
+.sunset-link-post-format h1.entry_title .link-icon {
+  display: block;
+  color: #fff;
+  font-size: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.6);
+  margin: 0 auto;
+  /* center the class when the width=height */
+  line-height: 1em;
+  padding-top: 10px;
+}
+
 /*# sourceMappingURL=sunset.css.map */

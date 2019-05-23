@@ -158,7 +158,7 @@ function sunset_get_bs_slides( $attachments ){
 }
 
 function sunset_grap_url(){
-   if(!preg_match("/<a>\s[^>]*?href=[\"'](.+?)[\"']/i",get_the_content() , $link)){ 
+   if(!preg_match('/<a\s[^>]*?href=[\'"](.+?)[\'"]/i',get_the_content() , $link)){ 
        /*  */
       return false ;
    }

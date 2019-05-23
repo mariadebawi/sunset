@@ -158,6 +158,7 @@ function sunset_get_bs_slides( $attachments ){
 }
 
 function sunset_grap_url(){
+   /* preg_match ==> function de recherche */
    if(!preg_match('/<a\s[^>]*?href=[\'"](.+?)[\'"]/i',get_the_content() , $link)){ 
        /* \s ==> white space  */
       return false ;

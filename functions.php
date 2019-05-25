@@ -5,7 +5,7 @@
  require get_template_directory() . '/inc/custom_post_type.php' ;
  require get_template_directory() . '/inc/cleanup.php' ;
  require get_template_directory() . '/inc/walker.php' ;
-
+ require get_template_directory() . '/inc/ajax.php';
 
 
 ?>

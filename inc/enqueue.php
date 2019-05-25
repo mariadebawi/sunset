@@ -47,8 +47,7 @@ add_action('admin_enqueue_scripts', 'sunset_load_admin_scripts');
  */
 
 function sunset_load_scripts()
-{
-
+{	
   //bootstrap css
   wp_register_style('sunset_bootstrap_style', get_template_directory_uri() . '/css/bootstrap.min.css', array(), '3.4.1', 'all');
   wp_enqueue_style('sunset_bootstrap_style');

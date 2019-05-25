@@ -675,3 +675,39 @@ h1 {
         }
     }
 }
+
+
+/***********************************
+      | | |  aside  post   | | |
+***********************************/
+.sunset-format-aside{
+    .aside_container{
+        background-color: rgba(0, 0, 0, 0.05);
+        padding-top: 20px ;
+    }
+    .aside-feature
+    {
+        width: 136px ;
+        height: 136px ;
+        border-radius: 50%  ;
+        -webkit-border-radius: 50%  ;
+        -moz-border-radius: 50%  ;
+        -ms-border-radius: 50%  ;
+        -o-border-radius: 50%  ;
+        margin: 0 auto -20px; /* tod5ol taswira fil footer */
+    }
+    .entry_expert{
+        margin-top: 0 !important;
+        p{
+            font-size: 15px;
+        }
+    }
+    .entry_meta{
+        margin-bottom: 5px ;
+    }
+    .entry_footer{
+        background-color: rgba(0, 0, 0, 0.05);
+        border-bottom: none ;
+        padding-right : 15px ;
+    }
+}

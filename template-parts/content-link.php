@@ -2,7 +2,7 @@
 /*
   @package theme sunset
 
-    ---- Standart post title--------
+    ---- link post title--------
  */
 ?>
 <?php /* all my function in /sunset_theme_support.php  */?>

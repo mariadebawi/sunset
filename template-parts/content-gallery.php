@@ -2,7 +2,7 @@
 /*
   @package theme sunset
 
-    ---- Standart post title--------
+    ---- gallery post title--------
  */
 ?>
 <?php /* all my function in /sunset_theme_support.php  */?>

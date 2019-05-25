@@ -617,4 +617,37 @@ h1.entry_title::after {
   padding-top: 10px;
 }
 
+/***********************************
+      | | |  aside  post   | | |
+***********************************/
+.sunset-format-aside .aside_container {
+  background-color: rgba(0, 0, 0, 0.05);
+  padding-top: 20px;
+}
+.sunset-format-aside .aside-feature {
+  width: 136px;
+  height: 136px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  margin: 0 auto -20px;
+  /* tod5ol taswira fil footer */
+}
+.sunset-format-aside .entry_expert {
+  margin-top: 0 !important;
+}
+.sunset-format-aside .entry_expert p {
+  font-size: 15px;
+}
+.sunset-format-aside .entry_meta {
+  margin-bottom: 5px;
+}
+.sunset-format-aside .entry_footer {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-bottom: none;
+  padding-right: 15px;
+}
+
 /*# sourceMappingURL=sunset.css.map */

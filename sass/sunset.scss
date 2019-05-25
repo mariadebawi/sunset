@@ -653,10 +653,12 @@ h1 {
             &::after {
                 display: none;
             }
-          a{
-           display: block;
-          }
-          .link-icon {
+
+            a {
+                display: block;
+            }
+
+            .link-icon {
                 display: block;
                 color: #fff;
                 font-size: 30px;
@@ -668,9 +670,10 @@ h1 {
                 -ms-border-radius: 50%;
                 -o-border-radius: 50%;
                 background-color: rgba(0, 0, 0, 0.6);
-                margin: 0 auto ; /* center the class when the width=height */
-                line-height: 1em ;
-                padding-top: 10px ;
+                margin: 0 auto;
+                /* center the class when the width=height */
+                line-height: 1em;
+                padding-top: 10px;
             }
         }
     }
@@ -680,35 +683,40 @@ h1 {
 /***********************************
       | | |  aside  post   | | |
 ***********************************/
-.sunset-format-aside{
-    .aside_container{
+.sunset-format-aside {
+    .aside_container {
         background-color: rgba(0, 0, 0, 0.05);
-        padding-top: 20px ;
+        padding-top: 20px;
     }
-    .aside-feature
-    {
-        width: 136px ;
-        height: 136px ;
-        border-radius: 50%  ;
-        -webkit-border-radius: 50%  ;
-        -moz-border-radius: 50%  ;
-        -ms-border-radius: 50%  ;
-        -o-border-radius: 50%  ;
-        margin: 0 auto -20px; /* tod5ol taswira fil footer */
+
+    .aside-feature {
+        width: 136px;
+        height: 136px;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+        margin: 0 auto -20px;
+        /* tod5ol taswira fil footer */
     }
-    .entry_expert{
+
+    .entry_expert {
         margin-top: 0 !important;
-        p{
+
+        p {
             font-size: 15px;
         }
     }
-    .entry_meta{
-        margin-bottom: 5px ;
+
+    .entry_meta {
+        margin-bottom: 5px;
     }
-    .entry_footer{
+
+    .entry_footer {
         background-color: rgba(0, 0, 0, 0.05);
-        border-bottom: none ;
-        padding-right : 15px ;
+        border-bottom: none;
+        padding-right: 15px;
     }
 }
 
@@ -716,9 +724,43 @@ h1 {
 /***********************************
       | | | footer    | | |
 ***********************************/
-.sunset-footer{
-   padding: 20px 0 ;
-   margin-top: 40px ;
-   display: block ;
-   background-color: #333 ;
+.sunset-footer {
+    padding: 20px 0;
+    margin-top: 40px;
+    display: block;
+    background-color: #333;
+}
+
+
+
+/***********************************
+      | | | AJax     | | |
+***********************************/
+.btn-sunset-loading {
+    display: block;
+    width: 200px;
+    color: #222;
+    font-size: 20px;
+    margin: 0 auto;
+    cursor: pointer;
+    opacity: 0.5;
+    @include animate(opacity , 320ms);
+
+    &:hover,
+    &:focus ,
+    &.loading {
+        opacity: 1;
+    }
+    &.loading {
+        cursor: default;
+    }
+    span {
+        display: block;
+    }
+}
+.spin{
+    animation-name: spin ;
+    animation-duration: 1000ms;
+    animation-iteration-count: infinite ;
+    animation-timing-function: linear ;    
 }

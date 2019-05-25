@@ -25,18 +25,19 @@ jQuery(document).ready(function ($) {
         });
     }
 
-
-
-
     /* ===============================
           Ajax CUstom functions
  ================================== */
 
-    $(document).on('click', '.sunset-load-more', function () {
+    $(document).on('click', '.sunset-load-more:not(.loading)', function () { //:not ==> desactivate a class
         var that = $(this);
         var page = $(this).data('page');
         var ajaxUrl = $(that).data('url');
         var newPage = page+1 ;
+        $(that).addClass('loading').find('.text').slideUp(320); // add class loadinf and disapare the text
+        $(that).find('.icon').addClass('spin'); // add class spin to the icon 
+
+
         $.ajax({
             url: ajaxUrl,
             type: 'post',
@@ -51,6 +52,10 @@ jQuery(document).ready(function ($) {
                 //console.log(response);
                 that.data('page' , newPage) ; /* the next page  */
                 $('.sunset_post_container').append(response);
+                 setTimeout(function(){
+                    $(that).removeClass('loading').find('.text').slideDown(320);
+                    $(that).find('.icon').removeClass('spin');    
+                 }, 1000) // delay the animation with setTimeout
             }
         });
 

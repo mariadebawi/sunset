@@ -12,6 +12,22 @@
 /***********************
     | | |  functions  | | |
 ******************************/
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+  }
+}
 /* placeholder*/
 /***********************
     | | |  placeholders   | | |
@@ -658,6 +674,40 @@ h1.entry_title::after {
   margin-top: 40px;
   display: block;
   background-color: #333;
+}
+
+/***********************************
+      | | | AJax     | | |
+***********************************/
+.btn-sunset-loading {
+  display: block;
+  width: 200px;
+  color: #222;
+  font-size: 20px;
+  margin: 0 auto;
+  cursor: pointer;
+  opacity: 0.5;
+  -webkit-transition: opacity 320ms ease;
+  -moz-transition: opacity 320ms ease;
+  -ms-transition: opacity 320ms ease;
+  -o-transition: opacity 320ms ease;
+  transition: opacity 320ms ease;
+}
+.btn-sunset-loading:hover, .btn-sunset-loading:focus, .btn-sunset-loading.loading {
+  opacity: 1;
+}
+.btn-sunset-loading.loading {
+  cursor: default;
+}
+.btn-sunset-loading span {
+  display: block;
+}
+
+.spin {
+  animation-name: spin;
+  animation-duration: 1000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
 
 /*# sourceMappingURL=sunset.css.map */

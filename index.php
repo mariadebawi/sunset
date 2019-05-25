@@ -18,8 +18,9 @@
         ?>
      </div>
      <div class="container text-center">
-       <a  class="btn btn-lg btn-default sunset-load-more" data-page="1" data-url="<?php /* import ajax file */ echo admin_url('admin-ajax.php') ;?>">
-         <span class="icon sunset-loading "> Load More</span>
+       <a  class="btn btn-lg btn-sunset-loading sunset-load-more" data-page="1" data-url="<?php /* import ajax file */ echo admin_url('admin-ajax.php') ;?>">
+         <span class="icon sunset-loading "></span>
+          <span class="text"> Load More</span>
        </a>
      </div>
     </main>

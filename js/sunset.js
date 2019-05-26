@@ -64,10 +64,10 @@ jQuery(document).ready(function ($) {
                 } else {
                     setTimeout(function () {
                         if (prev == 1) {
-                            $('.sunset_post_container').prepend(response);
+                            $('.sunset_post_container').prepend(response); //previous
                             newPage = page - 1;
                         } else {
-                            $('.sunset_post_container').append(response);
+                            $('.sunset_post_container').append(response);// nexet 
                         }
                         if (newPage == 1) {
                             $(that).slideUp(320);

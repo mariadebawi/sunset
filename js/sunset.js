@@ -1,5 +1,5 @@
 jQuery(document).ready(function ($) {
-
+    revealPostets() ; /* function to animatethe article */
     /* ===============================
         Add a varible to a div 
      ================================== */
@@ -24,6 +24,7 @@ jQuery(document).ready(function ($) {
             });
         });
     }
+
 
     /* ===============================
           Ajax CUstom functions
@@ -50,18 +51,28 @@ jQuery(document).ready(function ($) {
             },
             success: function (response) {
                 //console.log(response);
+                setTimeout(function(){
                 that.data('page' , newPage) ; /* the next page  */
                 $('.sunset_post_container').append(response);
-                 setTimeout(function(){
                     $(that).removeClass('loading').find('.text').slideDown(320);
                     $(that).find('.icon').removeClass('spin');    
-                 }, 1000) // delay the animation with setTimeout
+                    revealPostets() ;  /* function to animatethe article */
+                 }, 1500) // delay the animation with setTimeout
             }
         });
 
     });
 
-
+    function  revealPostets() {
+        var posts = $('article:not(.reveal)');
+        var i = 0 ;
+        setInterval(function(){
+            if(i >= posts.length) return false ;
+            var el = posts[i];
+            $(el).addClass('reveal');
+            i++ ;
+        } , 200);
+    }
 
 
 });

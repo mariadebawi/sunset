@@ -736,6 +736,17 @@ h1 {
 /***********************************
       | | | AJax     | | |
 ***********************************/
+.sunset_post_container {
+  article{
+      @include animate(all , 320ms);
+      @include transform(translateY(100px));
+      opacity: 0;
+   &.reveal{ /* class to animate the article*/
+    @include transform(translateY(0));
+    opacity: 1;
+   }
+ }
+}
 .btn-sunset-loading {
     display: block;
     width: 200px;

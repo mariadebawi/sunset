@@ -71,7 +71,7 @@ jQuery(document).ready(function ($) {
        $('.page-limit').each(function (index) { 
            if(isVisible( $(this) )) {
               // console.log('visible') ;
-               history.replaceState(null,null,$(this).attr("data-page")) ;
+               history.replaceState(null ,null , $(this).attr("data-page")) ; // change the url with attr(data-page)
                 return (false) ;
            }
        });

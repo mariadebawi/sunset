@@ -272,9 +272,6 @@ article {
   padding-bottom: 40px;
   padding-top: 40px;
 }
-article:first-child {
-  padding-top: 80px;
-}
 
 h1 {
   font-size: 48px;
@@ -679,6 +676,9 @@ h1.entry_title::after {
 /***********************************
       | | | AJax     | | |
 ***********************************/
+.sunset_post_container {
+  padding-top: 40px;
+}
 .sunset_post_container article {
   -webkit-transition: all 320ms ease;
   -moz-transition: all 320ms ease;

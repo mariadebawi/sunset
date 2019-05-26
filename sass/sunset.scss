@@ -244,10 +244,6 @@ h2.site-description {
 article {
     padding-bottom: 40px;
     padding-top: 40px;
-
-    &:first-child {
-        padding-top: 80px;
-    }
 }
 
 h1 {
@@ -737,6 +733,7 @@ h1 {
       | | | AJax     | | |
 ***********************************/
 .sunset_post_container {
+  padding-top: 40px;
   article{
       @include animate(all , 320ms);
       @include transform(translateY(100px));

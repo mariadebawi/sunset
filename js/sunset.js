@@ -1,11 +1,13 @@
 jQuery(document).ready(function ($) {
-    revealPostets() ; /* function to animatethe article */
-    /* ===============================
-        Add a varible to a div 
-     ================================== */
+    revealPostets(); /* function to animatethe article */
 
+
+ // Declaration variable 
     var carousel = '.sunset-carousel-thumb';
+    var last_scroll = 0 ;
 
+
+//Carousel Function
     sunset_get_bs_thumbs(carousel);
 
     $(carousel).on('slid.bs.carousel', function () { // slid.bs : slide bootstrap
@@ -26,15 +28,13 @@ jQuery(document).ready(function ($) {
     }
 
 
-    /* ===============================
-          Ajax CUstom functions
- ================================== */
+  // Ajax Functions
 
     $(document).on('click', '.sunset-load-more:not(.loading)', function () { //:not ==> desactivate a class
         var that = $(this);
         var page = $(this).data('page');
         var ajaxUrl = $(that).data('url');
-        var newPage = page+1 ;
+        var newPage = page + 1;
         $(that).addClass('loading').find('.text').slideUp(320); // add class loadinf and disapare the text
         $(that).find('.icon').addClass('spin'); // add class spin to the icon 
 
@@ -51,28 +51,64 @@ jQuery(document).ready(function ($) {
             },
             success: function (response) {
                 //console.log(response);
-                setTimeout(function(){
-                that.data('page' , newPage) ; /* the next page  */
-                $('.sunset_post_container').append(response);
+                setTimeout(function () {
+                    that.data('page', newPage); /* the next page  */
+                    $('.sunset_post_container').append(response);
                     $(that).removeClass('loading').find('.text').slideDown(320);
-                    $(that).find('.icon').removeClass('spin');    
-                    revealPostets() ;  /* function to animatethe article */
-                 }, 1500) // delay the animation with setTimeout
+                    $(that).find('.icon').removeClass('spin');
+                    revealPostets(); /* function to animatethe article */
+                }, 1500) // delay the animation with setTimeout
             }
         });
 
     });
 
-    function  revealPostets() {
+  //Scroll Functions 
+  $(window).scroll(function () { 
+     var scroll =  $(window).scrollTop();
+     if(Math.abs(scroll - last_scroll) > $(window).height()*0.1){
+       last_scroll = scroll ;
+       $('.page-limit').each(function (index) { 
+           if(isVisible( $(this) )) {
+              // console.log('visible') ;
+               history.replaceState(null,null,$(this).attr("data-page")) ;
+                return (false) ;
+           }
+       });
+     }
+  });
+
+
+
+
+
+
+
+
+  //functions helpers 
+    function revealPostets() {
         var posts = $('article:not(.reveal)');
-        var i = 0 ;
-        setInterval(function(){
-            if(i >= posts.length) return false ;
+        var i = 0;
+        setInterval(function () {
+            if (i >= posts.length) return false;
             var el = posts[i];
             $(el).addClass('reveal');
-            i++ ;
-        } , 200);
+            i++;
+        }, 200);
     }
-
+    
+    function isVisible(element){
+       var scroll_pos =  $(window).scrollTop();
+      // console.log('scroll_pos = ' + scroll_pos) ;
+       var window_height = $(window).height();
+       //console.log('window_height = ' + window_height) ;
+       var el_top = $(element).offset().top;
+      // console.log('el_top  = ' + el_top) ;
+       var el_height = $(element).height() ;
+      // console.log('el_height  = ' + el_height) ;
+       var el_bottom = el_top + el_height ;
+      // console.log('el_bottom  = ' + el_bottom) ;
+        return( (el_bottom - el_height*0.25 > scroll_pos) && (el_top < (scroll_pos+0.5*window_height) ) ) ;
+    }
 
 });

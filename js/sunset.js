@@ -34,11 +34,16 @@ jQuery(document).ready(function ($) {
         var that = $(this);
         var page = $(this).data('page');
         var prev = $(this).data('prev');
+        var archive = $(this).data('archive');
+
+
         var ajaxUrl = $(that).data('url');
         var newPage = page + 1;
         if (typeof (prev) == undefined) {
             prev = 0;
-            //console.log(prev);
+        }
+        if (typeof (archive) == undefined) {
+            archive = 0;
         }
 
         $(that).addClass('loading').find('.text').slideUp(320); // add class loadinf and disapare the text
@@ -50,6 +55,7 @@ jQuery(document).ready(function ($) {
             data: {
                 page: page,
                 prev: prev,
+                archive : archive ,
                 action: 'sunset_load_more' // function declarted en ajax.php
             },
             error: function (response) {

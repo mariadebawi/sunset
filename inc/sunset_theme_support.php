@@ -165,3 +165,10 @@ function sunset_grap_url(){
    }
     return esc_url_raw($link[1]) ;
 }
+
+function sunset_grap_current_uri(){
+   $http = (isset($_SERVER["HTTPS"]) ? 'https://' : 'http://') ;
+   $referer = (isset($_SERVER["HTTP_REFERER"]) ? rtrim($_SERVER["HTTP_REFERER"] , "/") : $http.$_SERVER["HTTP_HOST"]);
+   $archive_url = $referer.$_SERVER["REQUEST_URI"];
+     return $archive_url ;
+}

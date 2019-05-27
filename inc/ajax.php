@@ -29,11 +29,42 @@ function sunset_load_more()
   );
 
   if ($archive != '0') {
-    $archVal = explode('/', $archive);
-    //var_dump(($archVal)) ;
-    $type = ($archVal[1] == "category" ? "category_name" : $archVal[1]); // $archVal[1] : tag or category 
-    $args[$type] = $archVal[2];// $archVal[2] : type
-    $page_trail = '/' . $archVal[1] . '/' . $archVal[2] . '/'; 
+
+    $archVal = explode('/', $archive); // explode ==> remove char 
+
+    if (in_array("category", $archVal)) { //check category
+      $type = "category_name";
+      $currKey  = array_keys($archVal, "category");
+      $nextKey = $currKey[0] + 1;
+      $value = $archVal[$nextKey];
+      $args[$type] = $value;
+    }
+
+
+    if (in_array("tag", $archVal)) { //check category
+      $type = "tag";
+      $currKey  = array_keys($archVal, "tag");
+      $nextKey = $currKey[0] + 1;
+      $value = $archVal[$nextKey];
+      $args[$type] = $value;
+    }
+
+
+    if (in_array("author", $archVal)) { //check category
+      $type = "author";
+      $currKey  = array_keys($archVal, "author");
+      $nextKey = $currKey[0] + 1;
+      $value = $archVal[$nextKey];
+      $args[$type] = $value;
+    }
+
+
+    if (in_array("page", $archVal)) {
+      $pageVal = explode('page', $archive);
+      $page_trail = $pageVal[0];
+    } else {
+      $page_trail = $archive;
+    }
   } else {
     $page_trail = '/';
   }
@@ -41,7 +72,7 @@ function sunset_load_more()
   $query = new WP_Query($args);
 
   if ($query->have_posts()) :
-    echo '<div class="page-limit" data-page="' . $page_trail . 'page/' . $paged . '">';
+    echo '<div class="page-limit" data-page="' . $page_trail . 'page/' . $paged . '/">';
     while ($query->have_posts()) : $query->the_post();
       get_template_part('template-parts/content', get_post_format());
     endwhile;

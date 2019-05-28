@@ -14,12 +14,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="<?php bloginfo('description'); ?>">
     <link rel="profile" href="http://gmpg.org/xfn/11">
+   
     <?php if (is_singular() && pings_open(get_queried_object())) : ?>
         <link rel="pingback" href="<?php bloginfo('bingback_url'); ?>">
     <?php endif; ?>
+   
     <title><?php bloginfo('name'); wp_title(); ?></title>
+    
     <?php wp_head(); ?>
-    <?php $custom_css = esc_attr(get_option('custom_css')); 
+  
+  <?php $custom_css = esc_attr(get_option('custom_css')); 
       if(!empty($custom_css)) : echo '<style>'.$custom_css.'</style>' ;
       endif ;
     ?>

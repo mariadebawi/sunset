@@ -28,18 +28,28 @@ function sunset_load_more() {
 	);
 	
 	if( $archive != '0' ){
-		
-		$archVal = explode( '/', $archive ); //supp /
+		//explode() retourne un tableau de chaînes de caractères, chacune d'elle étant une sous-chaîne du paramètre string extraite en utilisant le séparateur delimiter.
+		$archVal = explode( '/', $archive ); 
 		$flipped = array_flip($archVal);
-		
+		 //var_dump($flipped) ; 
+		//array(5) { ["http:"]=> int(0) [""]=> int(5) ["sunset2019.test"]=> int(2) ["tag"]=> int(3) ["mp3"]=> int(4) }
+
+		//array_flip() retourne un tableau dont les clés sont les valeurs du précédent tableau array, et les valeurs sont les clés.
 		switch( isset( $flipped ) ) {
-			
+      	/*array(6) {
+			    [0]=> string(5) "http:"
+				[1]=> string(0) ""
+				[2]=> string(15) "sunset2019.test"
+				[3]=> string(3) "tag" 
+				[4]=> string(3) "mp3" 
+				[5]=> string(0) ""
+		 }*/
 			case $flipped["category"] :
 				$type = "category_name";
 				$key = "category";
 				break;
 				
-			case $flipped["tag"] :
+			case $flipped["tag"] : 
 				$type = "tag";
 				$key = $type;
 				break;
@@ -74,23 +84,17 @@ function sunset_load_more() {
 	$query = new WP_Query( $args );
 	
 	if( $query->have_posts() ):
+		echo '<div class="page-limit" data-page="' . $page_trail . 'page/' . $paged . '/">';	
 		
-		echo '<div class="page-limit" data-page="' . $page_trail . 'page/' . $paged . '/">';
-				
 		while( $query->have_posts() ): $query->the_post();
-		
 			get_template_part( 'template-parts/content', get_post_format() );
 		
 		endwhile;
-		
 		echo '</div>';
-		
 	else:
-	
 		echo 0;
-		
 	endif;
-	
+
 	wp_reset_postdata();
 	
 	die();
@@ -98,11 +102,8 @@ function sunset_load_more() {
 }
 
 function sunset_check_paged( $num = null ){
-	
 	$output = '';
-	
 	if( is_paged() ){ $output = 'page/' . get_query_var( 'paged' ); }
-	
 	if( $num == 1 ){
 		$paged = ( get_query_var( 'paged' ) == 0 ? 1 : get_query_var( 'paged' ) );
 		return $paged;

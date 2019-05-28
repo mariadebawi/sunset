@@ -15,22 +15,67 @@ function sunset_load_more() {
 	
 	$paged = $_POST["page"]+1;
 	$prev = $_POST["prev"];
-  $archive = $_POST["archive"];
-
+	$archive = $_POST["archive"];
+	
 	if( $prev == 1 && $_POST["page"] != 1 ){
-    $paged = $_POST["page"]-1;
-
+		$paged = $_POST["page"]-1;
 	}
 	
-	$query = new WP_Query( array(
+	$args = array(
 		'post_type' => 'post',
 		'post_status' => 'publish',
 		'paged' => $paged
-	) );
+	);
+	
+	if( $archive != '0' ){
+		
+		$archVal = explode( '/', $archive ); //supp /
+		$flipped = array_flip($archVal);
+		
+		switch( isset( $flipped ) ) {
+			
+			case $flipped["category"] :
+				$type = "category_name";
+				$key = "category";
+				break;
+				
+			case $flipped["tag"] :
+				$type = "tag";
+				$key = $type;
+				break;
+				
+			case $flipped["author_name"] :
+				$type = "author_name";
+				$key = $type;
+				break;
+			
+		}
+		
+		$currKey = array_keys( $archVal, $key );
+		$nextKey = $currKey[0]+1; 
+		$value = $archVal[ $nextKey ]; //the name of category or tag on pos +1 
+			
+		$args[ $type ] = $value;
+		
+		//check page trail and remove "page" value
+		if( isset( $flipped["page"] ) ){
+			
+			$pageVal = explode( 'page', $archive );
+			$page_trail = $pageVal[0];
+			
+		} else {
+			$page_trail = $archive;
+		}
+		
+	} else {
+		$page_trail = '/';
+	}
+	
+	$query = new WP_Query( $args );
 	
 	if( $query->have_posts() ):
 		
-		echo '<div class="page-limit" data-page="/page/' . $paged . '">';
+		echo '<div class="page-limit" data-page="' . $page_trail . 'page/' . $paged . '/">';
 				
 		while( $query->have_posts() ): $query->the_post();
 		

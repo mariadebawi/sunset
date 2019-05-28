@@ -175,7 +175,7 @@ function sunset_grab_current_uri(){
 }
 */
 
-/*
+
 function sunset_grab_current_uri() {
 	$http = ( isset( $_SERVER["HTTPS"] ) ? 'https://' : 'http://' );
 	$referer = $http . $_SERVER["HTTP_HOST"];
@@ -184,6 +184,6 @@ function sunset_grab_current_uri() {
 	return $archive_url;
 }
 
-*/
+
 
 

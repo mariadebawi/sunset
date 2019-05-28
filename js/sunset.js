@@ -32,10 +32,14 @@ jQuery(document).ready(function ($) {
 
     $(document).on('click', '.sunset-load-more:not(.loading)', function () { //:not ==> desactivate a class
         var that = $(this);
-        var page = $(this).data('page');
-        var prev = $(this).data('prev');
-        var archive = $(this).data('archive');
-        //console.log(archive) ;
+        var page = that.data('page');
+        var prev = that.data('prev');
+        var archive = that.data('archive');
+        
+       // console.log("page : " + page) ;
+        //console.log("prev : " + prev) ;
+        //console.log("archive : " + archive) ;
+
         var ajaxUrl = $(that).data('url');
         var newPage = page + 1;
         if (typeof (prev) == undefined) {
@@ -43,6 +47,8 @@ jQuery(document).ready(function ($) {
         }
         if (typeof (archive) == undefined) {
             archive = 0;
+           // console.log("archive : " + archive) ;
+
         }
 
         $(that).addClass('loading').find('.text').slideUp(320); // add class loadinf and disapare the text

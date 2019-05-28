@@ -35,8 +35,7 @@ jQuery(document).ready(function ($) {
         var page = $(this).data('page');
         var prev = $(this).data('prev');
         var archive = $(this).data('archive');
-
-
+        //console.log(archive) ;
         var ajaxUrl = $(that).data('url');
         var newPage = page + 1;
         if (typeof (prev) == undefined) {

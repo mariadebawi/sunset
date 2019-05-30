@@ -17,7 +17,7 @@ get_header(); ?>
 			
       <div class="container text-center container-load-prev">
        <a class="btn btn-lg btn-sunset-loading sunset-load-more" data-prev="1" data-archive="<?php echo sunset_grab_current_uri(); ?>" data-page="<?php echo sunset_check_paged(1); ?>" data-url="<?php echo admin_url('admin-ajax.php'); ?>">
-						<span class="icon sunset-loading"></span>
+						<span class="sunset-icon sunset-loading"></span>
 						<span class="text">Load Previous</span>
 					</a>
 				</div><!-- .container -->
@@ -48,7 +48,7 @@ get_header(); ?>
 			
 			<div class="container text-center">
 				    <a class="btn btn-lg btn-sunset-loading sunset-load-more"   data-page="<?php echo sunset_check_paged(1); ?>" data-archive="<?php echo sunset_grab_current_uri(); ?>" data-url="<?php echo admin_url('admin-ajax.php'); ?>">
-					<span class="icon sunset-loading"></span>
+					<span class="sunset-icon sunset-loading"></span>
 					<span class="text">Load More</span>
 				</a>
 			</div><!-- .container -->

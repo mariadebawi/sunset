@@ -52,7 +52,7 @@ jQuery(document).ready(function ($) {
         }
 
         $(that).addClass('loading').find('.text').slideUp(320); // add class loadinf and disapare the text
-        $(that).find('.icon').addClass('spin'); // add class spin to the icon 
+        $(that).find('.sunset-icon').addClass('spin'); // add class spin to the icon 
 
         $.ajax({
             url: ajaxUrl,
@@ -85,7 +85,7 @@ jQuery(document).ready(function ($) {
                         } else {
                             that.data('page', newPage); /* the next page  */
                             $(that).removeClass('loading').find('.text').slideDown(320);
-                            $(that).find('.icon').removeClass('spin');
+                            $(that).find('.sunset-icon').removeClass('spin');
                         }
                         revealPostets(); /* function to animatethe article */
                     }, 1500) // delay the animation with setTimeout

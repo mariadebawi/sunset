@@ -36,7 +36,7 @@
                     <div class="header-content table ">
                         <div class="table-cell">
                             <!-- icons of sunset_icon.css file -->
-                            <h1 class="site-title icon"><!-- .icon class generic -->
+                            <h1 class="site-title sunset-icon"><!-- .icon class generic -->
                                 <span class="sunset-logo"></span><!-- .icon-logo  class  -->
                                 <span class="hide"> <?php bloginfo('name'); ?></span>
                             </h1>

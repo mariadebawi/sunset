@@ -74,7 +74,7 @@ function sunset_posted_footer()
       } else {
          $comments = __('1 Comment');
       }
-      $comments = '<a class="comments-link" href="' . get_comments_link() . '">' . $comments . '<span class="icon sunset-comment"></span></a>';
+      $comments = '<a class="comments-link" href="' . get_comments_link() . '">' . $comments . '<span class="sunset-icon sunset-comment"></span></a>';
    } else {
       $comments = __('Comments Closed');
    }
@@ -83,7 +83,7 @@ function sunset_posted_footer()
      <div class='row'>
      <div class='col-xs-12 col-sm-12 col-md-6 '>"
       . get_the_tag_list("<div class='tags-list'>
-         <span class='icon sunset-tag'></span>", " ", "</div>") .
+         <span class='sunset-icon sunset-tag'></span>", " ", "</div>") .
       '</div>
      <div class="col-xs-12 col-sm-12 col-md-6 text-right">' . $comments . "
      </div>
@@ -185,17 +185,42 @@ function sunset_grab_current_uri() {
 
 function sunset_post_navigation(){
    $nav = '<div class="row">';
- 
-   $prev = get_previous_post_link('<div class="post-link-nav"><span class="icon sunset-chevron-left" aria-hidden="true"></span>%link</div>','%title');
+  
+   // >
+   $prev = get_previous_post_link('<div class="post-link-nav"><span class="sunset-icon sunset-chevron-left" aria-hidden="true"></span>%link</div>','%title');
    $nav .= '<div class="col-xs-12 col-sm-6">'.$prev.'</div>';
  
-   $next = get_next_post_link('<div class="post-link-nav">%link <span class="icon sunset-chevron-right" aria-hidden="true"></span></div>','%title');
+   // <
+   $next = get_next_post_link('<div class="post-link-nav">%link <span class="sunset-icon sunset-chevron-right" aria-hidden="true"></span></div>','%title');
    $nav .= '<div class="col-xs-12 col-sm-6 text-right">'.$next.'</div>';
  
    $nav .= '</div>';
+
    return $nav ;
 }
 
+function sunset_sharing_this($content){
+   if(is_single()){
+   $content.='<div class="sunset_sharingThis"><h4> Share This </h4>';
 
+   $title = get_the_title();
+   $permalink = get_the_permalink();
 
+   $twittetHandler = (get_option('twitter') ? '&amp;via=' . esc_attr(get_option('twitter')) : '');
+   $twitter = 'https://twitter.com/intent/tweet?text=Hey! Read This:' . $title . '&amp;url=' . $permalink . $twittetHandler . '';
+   $facebook = 'https://wwww.facebook.com/sharer/sharer.php?u=' . $permalink;
+   $google = 'https://plus.google.com/share?url=' . $permalink;
+
+   $content.='<ul>';
+   $content.='<li><a href="'.$twitter.'" target="_blank" rel="nofollow"><span class="sunset-icon sunset-twitter"></span></a></li>';
+   $content.= '<li><a href="'.$facebook.'" target="_blank" rel="nofollow"><span class="sunset-icon sunset-facebook"></span></a></li>';
+   $content.=  '<li><a href=href="'.$google.'" target="_blank"  target="_blank" rel="nofollow"><span class="sunset-icon sunset-googleplus"></span></a></li>';
    
+   $content.='<ul></div>';
+   return $content ;
+   }
+   else{
+      return $content ;
+   }
+}
+add_filter('the_content' ,'sunset_sharing_this' ); // show the .sunset_sharingThis class

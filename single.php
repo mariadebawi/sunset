@@ -15,7 +15,7 @@ get_header(); ?>
                     if (have_posts()) :
                         while (have_posts()) : the_post();
                             get_template_part('template-parts/single', get_post_format());
-                            the_post_navigation();
+                            echo sunset_post_navigation();
                             if (comments_open()) :
                                 comments_template();
                             endif;

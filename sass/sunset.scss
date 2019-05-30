@@ -817,3 +817,14 @@ h1 {
         font-weight: 500;
     }
 }
+
+.post-link-nav{
+    padding: 10px 0 ;
+    a{
+        padding: 0 5px ;
+        &:hover,
+        &:focus {
+            color: #f56b08;
+        }
+    }
+}

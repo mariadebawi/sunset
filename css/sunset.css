@@ -903,4 +903,14 @@ h1.entry_title::after {
   font-weight: 500;
 }
 
+.post-link-nav {
+  padding: 10px 0;
+}
+.post-link-nav a {
+  padding: 0 5px;
+}
+.post-link-nav a:hover, .post-link-nav a:focus {
+  color: #f56b08;
+}
+
 /*# sourceMappingURL=sunset.css.map */

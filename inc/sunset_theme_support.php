@@ -199,8 +199,10 @@ function sunset_post_navigation(){
    return $nav ;
 }
 
+
 function sunset_sharing_this($content){
    if(is_single()){
+  
    $content.='<div class="sunset_sharingThis"><h4> Share This </h4>';
 
    $title = get_the_title();
@@ -217,6 +219,7 @@ function sunset_sharing_this($content){
    $content.=  '<li><a href=href="'.$google.'" target="_blank"  target="_blank" rel="nofollow"><span class="sunset-icon sunset-googleplus"></span></a></li>';
    
    $content.='<ul></div>';
+   
    return $content ;
    }
    else{

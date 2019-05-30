@@ -883,13 +883,16 @@ h1.entry_title::after {
   font-weight: 300;
 }
 .entry_content a,
-.entry_content .sunset_tooltip {
+.entry_content .sunset_tooltip,
+.entry_content .sunset_popover {
   color: #ff9d1d;
   cursor: pointer;
 }
 .entry_content a:hover, .entry_content a:focus,
 .entry_content .sunset_tooltip:hover,
-.entry_content .sunset_tooltip:focus {
+.entry_content .sunset_tooltip:focus,
+.entry_content .sunset_popover:hover,
+.entry_content .sunset_popover:focus {
   color: #f56b08;
 }
 .entry_content p {

@@ -119,7 +119,9 @@ jQuery(document).ready(function ($) {
 
     //functions helpers 
     function revealPostets() {
-        $('[data-toggle="tooltip"]').tooltip() ;
+        $('[data-toggle="tooltip"]').tooltip() ; // add on edit post wordpress the tag of tooltip
+        $('[data-toggle="popover"]').popover()
+
         var posts = $('article:not(.reveal)');
         var i = 0;
         setInterval(function () {

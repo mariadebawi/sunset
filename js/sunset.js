@@ -119,6 +119,7 @@ jQuery(document).ready(function ($) {
 
     //functions helpers 
     function revealPostets() {
+        $('[data-toggle="tooltip"]').tooltip() ;
         var posts = $('article:not(.reveal)');
         var i = 0;
         setInterval(function () {

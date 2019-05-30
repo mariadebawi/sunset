@@ -735,23 +735,27 @@ h1 {
 /***********************************
       | | | AJax     | | |
 ***********************************/
-.container-load-prev{
-    margin-top: 40px ;
-    margin-bottom: -40px ;
+.container-load-prev {
+    margin-top: 40px;
+    margin-bottom: -40px;
 }
 
 .sunset_post_container {
-  padding-top: 40px;
-  article{
-      @include animate(all , 320ms);
-      @include transform(translateY(100px));
-      opacity: 0;
-   &.reveal{ /* class to animate the article*/
-    @include transform(translateY(0));
-    opacity: 1;
-   }
- }
+    padding-top: 40px;
+
+    article {
+        @include animate(all, 320ms);
+        @include transform(translateY(100px));
+        opacity: 0;
+
+        &.reveal {
+            /* class to animate the article*/
+            @include transform(translateY(0));
+            opacity: 1;
+        }
+    }
 }
+
 .btn-sunset-loading {
     display: block;
     width: 200px;
@@ -760,38 +764,55 @@ h1 {
     margin: 0 auto;
     cursor: pointer;
     opacity: 0.5;
-    @include animate(opacity , 320ms);
+    @include animate(opacity, 320ms);
 
     &:hover,
-    &:focus ,
+    &:focus,
     &.loading {
         opacity: 1;
     }
+
     &.loading {
         cursor: default;
     }
+
     span {
         display: block;
     }
 }
-.spin{
-    animation-name: spin ;
+
+.spin {
+    animation-name: spin;
     animation-duration: 1000ms;
-    animation-iteration-count: infinite ;
-    animation-timing-function: linear ;    
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
 }
 
 
 /* Single Post*/
-.entry_content{
+.entry_content {
     margin-top: 40px;
-    font-size: 18px ;
+    font-size: 17px;
     letter-spacing: 0.02em;
-    font-weight: 300 ;
-     p{
-         margin-bottom: 15px;
-     }
-     b,strong{
-         font-weight: 500 ;
-     }
+    font-weight: 300;
+
+    a,
+    .sunset_tooltip {
+        color: #ff9d1d;
+        cursor: pointer;
+
+        &:hover,
+        &:focus {
+            color: #f56b08;
+        }
+    }
+
+    p {
+        margin-bottom: 15px;
+    }
+
+    b,
+    strong {
+        font-weight: 500;
+    }
 }

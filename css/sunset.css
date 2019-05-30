@@ -878,14 +878,25 @@ h1.entry_title::after {
 /* Single Post*/
 .entry_content {
   margin-top: 40px;
-  font-size: 18px;
+  font-size: 17px;
   letter-spacing: 0.02em;
   font-weight: 300;
+}
+.entry_content a,
+.entry_content .sunset_tooltip {
+  color: #ff9d1d;
+  cursor: pointer;
+}
+.entry_content a:hover, .entry_content a:focus,
+.entry_content .sunset_tooltip:hover,
+.entry_content .sunset_tooltip:focus {
+  color: #f56b08;
 }
 .entry_content p {
   margin-bottom: 15px;
 }
-.entry_content b, .entry_content strong {
+.entry_content b,
+.entry_content strong {
   font-weight: 500;
 }
 

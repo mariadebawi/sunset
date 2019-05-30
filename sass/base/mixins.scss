@@ -19,6 +19,17 @@
     transform: $val;
 }
 
+@mixin  fillwidth {
+    width: 100% ;
+    height: auto;
+}
+
+
+
+
+
+
+
 @keyframes spin  {
     from {
         transform: rotate(0deg)    ;

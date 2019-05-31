@@ -913,7 +913,9 @@ h1.entry_title::after {
   color: #f56b08;
 }
 
-/* SHaring Section*/
+/***********************************
+      | | |  Sharing Section   | | |
+***********************************/
 .sunset_sharingThis {
   text-align: center;
   display: block;
@@ -948,6 +950,14 @@ h1.entry_title::after {
 }
 .sunset_sharingThis a:hover, .sunset_sharingThis a:focus {
   opacity: 1;
+}
+
+/***********************************
+      | | |  Comments Post   | | |
+***********************************/
+.comments-area {
+  border-top: 4px solid #f5f5f5;
+  margin-top: 40px;
 }
 
 /*# sourceMappingURL=sunset.css.map */

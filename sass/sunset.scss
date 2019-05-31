@@ -831,7 +831,11 @@ h1 {
     }
 }
 
-/* SHaring Section*/
+/***********************************
+      | | |  Sharing Section   | | |
+***********************************/
+
+
 .sunset_sharingThis {
     text-align: center;
     display: block;
@@ -867,5 +871,15 @@ h1 {
             opacity: 1;
         }
     }
+
+}
+
+/***********************************
+      | | |  Comments Post   | | |
+***********************************/
+
+.comments-area {
+    border-top: 4px solid #f5f5f5;
+    margin-top: 40px ;
 
 }

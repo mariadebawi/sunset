@@ -16,6 +16,12 @@ foreach ($formats as $format) {
 /* list type of format post  */
 add_theme_support('post-formats', $output);
 
+/*
+============================
+  Activate  functions
+============================
+*/
+
 /* activate custom header */
 $header = get_option('custom_header');
 if (@$header == 1) {
@@ -36,6 +42,12 @@ add_action('after_setup_theme', 'sunset_register_nav_menu');
 
 /* active the upload picture */
 add_theme_support('post-thumbnails');
+
+//activate html5 feature 
+add_theme_support('html5' , array('comment-list','comment-form', 'search-form'));
+ //novalidate
+ 
+
 
 
 /*

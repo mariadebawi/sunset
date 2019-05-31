@@ -21,35 +21,25 @@ if (post_password_required()) {
             <?php
             //2 comments on “Gallery Post Format”
             printf(
-                esc_html(_nx('One comment on &ldquo;%2$s&rdquo;', '%1$s comments on &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', 'Sunset')),
+             /* translators: 1: number of comments, 2: post title */
+                esc_html(
+                    _nx('One comment on &ldquo;%2$s&rdquo;',
+
+                     '%1$s comments on &ldquo;%2$s&rdquo;', 
+                     get_comments_number(),
+                      'comments title', 'Sunset'
+                    )),
                 number_format_i18n(get_comments_number()),
                 '<span>' . get_the_title() . '</span>'
             );
             ?>
         </h2>
 
-        <?php
-        if (get_comment_pages_count() > 1 && get_option('page_comments')) : ?>
-            <nav id="comment-nav-top" class="comment-navigation" role="navigation">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-6">
-                        <div class="post-link-nav">
-                            <span class="sunset-icon sunset-chevron-left" aria-hidden="true"></span>
-                            <?php previous_comments_link(esc_html__('Older comments', 'Sunset')) ?>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 text-right">
-                        <div class="post-link-nav">
-                            <span class="sunset-icon sunset-chevron-right" aria-hidden="true"></span>
-                            <?php next_comments_link(esc_html__('Newer comments', 'Sunset')) ?>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-        <?php endif; ?>
+        <?php sunset_get_navigatin(); ?>
 
-        <ol class="comment-list">
+        <ol class="comment-list"> 
             <?php
+            // comtr and reply
             $args = array(
                 'walker'       => null,
                 'max_depth'    => '',
@@ -69,26 +59,7 @@ if (post_password_required()) {
             ?>
         </ol>
 
-        <?php
-        if (get_comment_pages_count() > 1 && get_option('page_comments')) : ?>
-            <nav id="comment-nav-bottom" class="comment-navigation" role="navigation">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-6">
-                        <div class="post-link-nav">
-                            <span class="sunset-icon sunset-chevron-left" aria-hidden="true"></span>
-                            <?php previous_comments_link(esc_html__('Older comments', 'Sunset')) ?>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 text-right">
-                        <div class="post-link-nav">
-                            <span class="sunset-icon sunset-chevron-right" aria-hidden="true"></span>
-                            <?php next_comments_link(esc_html__('Newer comments', 'Sunset')) ?>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-        <?php endif; ?>
-
+        <?php sunset_get_navigatin(); ?>
 
         <?php if (!(comments_open() && get_comments_number())) : ?>
             <p class="no-comments"> <?php esc_html_e('Comments are closed', 'Sunset'); ?> </p>
@@ -96,7 +67,8 @@ if (post_password_required()) {
 
     <?php endif; ?>
 
-    <?php comment_form(); ?>
+    <?php  comment_form(sunset_comment_form());  ?>
+
 
 </div>
 

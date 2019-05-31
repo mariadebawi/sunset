@@ -44,9 +44,9 @@ add_action('after_setup_theme', 'sunset_register_nav_menu');
 add_theme_support('post-thumbnails');
 
 //activate html5 feature 
-add_theme_support('html5' , array('comment-list','comment-form', 'search-form'));
- //novalidate
- 
+add_theme_support('html5', array('comment-list', 'comment-form', 'search-form'));
+//novalidate
+
 
 
 
@@ -141,51 +141,53 @@ function sunset_get_embedded_media($type = array()) /* type mp3 or mp4 ..... */
    return $output;
 }
 
-function sunset_get_bs_slides( $attachments ){
-	
-	$output = array();
-	$count = count($attachments)-1;
-	
-	for( $i = 0; $i <= $count; $i++ ): 
-	
-		$active = ( $i == 0 ? ' active' : '' );
-		
-		$n = ( $i == $count ? 0 : $i+1 );
-		$nextImg = wp_get_attachment_thumb_url( $attachments[$n]->ID );
-		$p = ( $i == 0 ? $count : $i-1 );
-		$prevImg = wp_get_attachment_thumb_url( $attachments[$p]->ID );
-		
-		$output[$i] = array( 
-			'class'		=> $active, 
-			'url'		=> wp_get_attachment_url( $attachments[$i]->ID ),
-			'next_img'	=> $nextImg,
-			'prev_img'	=> $prevImg,
-			'caption'	=> $attachments[$i]->post_excerpt
-		);
-	
-	endfor;
-	
-	return $output;
-	
+function sunset_get_bs_slides($attachments)
+{
+
+   $output = array();
+   $count = count($attachments) - 1;
+
+   for ($i = 0; $i <= $count; $i++) :
+
+      $active = ($i == 0 ? ' active' : '');
+
+      $n = ($i == $count ? 0 : $i + 1);
+      $nextImg = wp_get_attachment_thumb_url($attachments[$n]->ID);
+      $p = ($i == 0 ? $count : $i - 1);
+      $prevImg = wp_get_attachment_thumb_url($attachments[$p]->ID);
+
+      $output[$i] = array(
+         'class'      => $active,
+         'url'      => wp_get_attachment_url($attachments[$i]->ID),
+         'next_img'   => $nextImg,
+         'prev_img'   => $prevImg,
+         'caption'   => $attachments[$i]->post_excerpt
+      );
+
+   endfor;
+
+   return $output;
 }
 
-function sunset_grap_url(){
+function sunset_grap_url()
+{
    /* preg_match ==> function de recherche */
-   if(!preg_match('/<a\s[^>]*?href=[\'"](.+?)[\'"]/i',get_the_content() , $link)){ 
-       /* \s ==> white space  */
-      return false ;
+   if (!preg_match('/<a\s[^>]*?href=[\'"](.+?)[\'"]/i', get_the_content(), $link)) {
+      /* \s ==> white space  */
+      return false;
    }
-    return esc_url_raw($link[1]) ;
+   return esc_url_raw($link[1]);
 }
 
 
 
-function sunset_grab_current_uri() {
-	$http = ( isset( $_SERVER["HTTPS"] ) ? 'https://' : 'http://' );
-	$referer = $http . $_SERVER["HTTP_HOST"];
-	$archive_url = $referer . $_SERVER["REQUEST_URI"];
-	
-	return $archive_url;
+function sunset_grab_current_uri()
+{
+   $http = (isset($_SERVER["HTTPS"]) ? 'https://' : 'http://');
+   $referer = $http . $_SERVER["HTTP_HOST"];
+   $archive_url = $referer . $_SERVER["REQUEST_URI"];
+
+   return $archive_url;
 }
 
 
@@ -195,47 +197,90 @@ function sunset_grab_current_uri() {
 ============================
 */
 
-function sunset_post_navigation(){
+function sunset_post_navigation()
+{
    $nav = '<div class="row">';
-  
+
    // >
-   $prev = get_previous_post_link('<div class="post-link-nav"><span class="sunset-icon sunset-chevron-left" aria-hidden="true"></span>%link</div>','%title');
-   $nav .= '<div class="col-xs-12 col-sm-6">'.$prev.'</div>';
- 
+   $prev = get_previous_post_link('<div class="post-link-nav"><span class="sunset-icon sunset-chevron-left" aria-hidden="true"></span>%link</div>', '%title');
+   $nav .= '<div class="col-xs-12 col-sm-6">' . $prev . '</div>';
+
    // <
-   $next = get_next_post_link('<div class="post-link-nav">%link <span class="sunset-icon sunset-chevron-right" aria-hidden="true"></span></div>','%title');
-   $nav .= '<div class="col-xs-12 col-sm-6 text-right">'.$next.'</div>';
- 
+   $next = get_next_post_link('<div class="post-link-nav">%link <span class="sunset-icon sunset-chevron-right" aria-hidden="true"></span></div>', '%title');
+   $nav .= '<div class="col-xs-12 col-sm-6 text-right">' . $next . '</div>';
+
    $nav .= '</div>';
 
-   return $nav ;
+   return $nav;
 }
 
 
-function sunset_sharing_this($content){
-   if(is_single()){
-  
-   $content.='<div class="sunset_sharingThis"><h4> Share This </h4>';
+function sunset_sharing_this($content)
+{
+   if (is_single()) {
 
-   $title = get_the_title();
-   $permalink = get_the_permalink();
+      $content .= '<div class="sunset_sharingThis"><h4> Share This </h4>';
 
-   $twittetHandler = (get_option('twitter') ? '&amp;via=' . esc_attr(get_option('twitter')) : '');
-   $twitter = 'https://twitter.com/intent/tweet?text=Hey! Read This:' . $title . '&amp;url=' . $permalink . $twittetHandler . '';
-   $facebook = 'https://wwww.facebook.com/sharer/sharer.php?u=' . $permalink;
-   $google = 'https://plus.google.com/share?url=' . $permalink;
+      $title = get_the_title();
+      $permalink = get_the_permalink();
 
-   $content.='<ul>';
-   $content.='<li><a href="'.$twitter.'" target="_blank" rel="nofollow"><span class="sunset-icon sunset-twitter"></span></a></li>';
-   $content.= '<li><a href="'.$facebook.'" target="_blank" rel="nofollow"><span class="sunset-icon sunset-facebook"></span></a></li>';
-   $content.=  '<li><a href=href="'.$google.'" target="_blank"  target="_blank" rel="nofollow"><span class="sunset-icon sunset-googleplus"></span></a></li>';
-   
-   $content.='<ul></div>';
-   
-   return $content ;
-   }
-   else{
-      return $content ;
+      $twittetHandler = (get_option('twitter') ? '&amp;via=' . esc_attr(get_option('twitter')) : '');
+      $twitter = 'https://twitter.com/intent/tweet?text=Hey! Read This:' . $title . '&amp;url=' . $permalink . $twittetHandler . '';
+      $facebook = 'https://wwww.facebook.com/sharer/sharer.php?u=' . $permalink;
+      $google = 'https://plus.google.com/share?url=' . $permalink;
+
+      $content .= '<ul>';
+      $content .= '<li><a href="' . $twitter . '" target="_blank" rel="nofollow"><span class="sunset-icon sunset-twitter"></span></a></li>';
+      $content .= '<li><a href="' . $facebook . '" target="_blank" rel="nofollow"><span class="sunset-icon sunset-facebook"></span></a></li>';
+      $content .=  '<li><a href=href="' . $google . '" target="_blank"  target="_blank" rel="nofollow"><span class="sunset-icon sunset-googleplus"></span></a></li>';
+
+      $content .= '<ul></div>';
+
+      return $content;
+   } else {
+      return $content;
    }
 }
-add_filter('the_content' ,'sunset_sharing_this' ); // show the .sunset_sharingThis class
+add_filter('the_content', 'sunset_sharing_this'); // show the .sunset_sharingThis class
+
+function sunset_get_navigatin()
+{
+   // if (get_comment_pages_count() > 1 && get_option('page_comments')):
+   require(get_template_directory() . '/inc/templates/comment-nav.php');
+
+   // endif ;
+
+}
+
+function sunset_comment_form()
+{
+   $commenter = wp_get_current_commenter();
+
+   $fields = array(
+			
+      'author' =>
+         '<div class="form-group"><label for="author">' . __( 'Name', 'domainreference' ) . '</label> <span class="required">*</span> <input id="author" name="author" type="text" class="form-control" value="' . esc_attr( $commenter['comment_author'] ) . '" required="required" /></div>',
+         
+      'email' =>
+         '<div class="form-group"><label for="email">' . __( 'Email', 'domainreference' ) . '</label> <span class="required">*</span><input id="email" name="email" class="form-control" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" required="required" /></div>',
+         
+      'url' =>
+         '<div class="form-group last-field"><label for="url">' . __( 'Website', 'domainreference' ) . '</label><input id="url" name="url" class="form-control" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" /></div>'
+         
+   );
+ 
+   $args = array(
+      
+      'class_submit' => 'btn btn-block btn-lg btn-warning',
+      'label_submit' => __('Submit Comment'), //btn content
+      'title_reply'       => __( 'Leave a Reply' ),
+      'title_reply_to'    => __( 'Leave a Reply to %s' ),
+      'comment_field' =>
+      '<div class="form-group"><label for="comment">' . _x('Comment', 'noun') . '</label> <span class="required">*</span><textarea id="comment" class="form-control" name="comment" rows="4" required="required"></textarea></p>',
+      'fields' => apply_filters('comment_form_default_fields', $fields)
+   );
+   
+
+   return $args;
+}
+

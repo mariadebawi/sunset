@@ -987,3 +987,21 @@ a.comment-reply-link {
 .comment-respond {
 	margin-top: 60px;
 }
+
+
+
+/***********************************
+      | | |  Sidebar    | | |
+***********************************/
+
+.sunset-sidebar{
+    position: fixed;
+    top: 0 ;
+    right: 0;
+    z-index: 9;
+    background-color: #1f1f1f ;
+    color: #fff ;
+    height: 100vh; /* 100vh give you all the hight with all browser*/
+    width: 100% ;
+    max-width: 280px ;
+}

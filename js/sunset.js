@@ -35,8 +35,8 @@ jQuery(document).ready(function ($) {
         var page = that.data('page');
         var prev = that.data('prev');
         var archive = that.data('archive');
-        
-       // console.log("page : " + page) ;
+
+        // console.log("page : " + page) ;
         //console.log("prev : " + prev) ;
         //console.log("archive : " + archive) ;
 
@@ -47,7 +47,7 @@ jQuery(document).ready(function ($) {
         }
         if (typeof (archive) == undefined) {
             archive = 0;
-           // console.log("archive : " + archive) ;
+            // console.log("archive : " + archive) ;
 
         }
 
@@ -60,7 +60,7 @@ jQuery(document).ready(function ($) {
             data: {
                 page: page,
                 prev: prev,
-                archive : archive ,
+                archive: archive,
                 action: 'sunset_load_more' // function declarted en ajax.php
             },
             error: function (response) {
@@ -78,7 +78,7 @@ jQuery(document).ready(function ($) {
                             $('.sunset_post_container').prepend(response); //previous
                             newPage = page - 1;
                         } else {
-                            $('.sunset_post_container').append(response);// nexet 
+                            $('.sunset_post_container').append(response); // nexet 
                         }
                         if (newPage == 1) {
                             $(that).slideUp(320);
@@ -112,7 +112,7 @@ jQuery(document).ready(function ($) {
 
 
     // sidebar functions
-   /* $(document).on('click', '.js-closeSidebar', function () { 
+    /* $(document).on('click', '.js-closeSidebar', function () { 
          $('.sunset-sidebar').addClass('sidebar-closed');
     });
 
@@ -121,17 +121,17 @@ jQuery(document).ready(function ($) {
    });
 
 */
-    $(document).on('click', '.js-ToggleSidebar', function () { 
-     /* toggleClass = addClass +  removeClass :  if class sidebar-closed exist  remove it sinon add it   */
+    $(document).on('click', '.js-ToggleSidebar', function () {
+        /* toggleClass = addClass +  removeClass :  if class sidebar-closed exist  remove it sinon add it   */
         $('.sunset-sidebar').toggleClass('sidebar-closed');
     });
- 
+
 
 
 
     //functions helpers 
     function revealPostets() {
-        $('[data-toggle="tooltip"]').tooltip() ; // add on edit post wordpress the tag of tooltip
+        $('[data-toggle="tooltip"]').tooltip(); // add on edit post wordpress the tag of tooltip
         $('[data-toggle="popover"]').popover()
 
         var posts = $('article:not(.reveal)');

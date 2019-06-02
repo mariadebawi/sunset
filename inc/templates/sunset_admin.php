@@ -19,7 +19,18 @@ $description = esc_attr(get_option('description_name'));
     </div>
     <h1 class="sunset_username"> <?php print $fullName; ?></h1>
     <h2 class="sunset_description"> <?php print $description; ?></h1>
-      <div class="icon_wrapper"></div>
+      <div class="icon_wrapper">
+          <?php if (!empty($twitter_icon)) : ?>
+            <span class="sunset-icon-sidebar dashicons-before dashicons-twitter"></span>
+          <?php endif;
+           if (!empty($gplus_icon)) : ?>
+            <span class="sunset-icon-sidebar sunset-icon-sidebar--gplus dashicons-before dashicons-googleplus"></span>
+          <?php endif;
+           if (!empty($facebook_icon)) : ?>
+            <span class="sunset-icon-sidebar dashicons-before dashicons-facebook-alt"></span>
+          <?php endif; ?>
+
+      </div>
   </div>
 </div>
 <form method="post" action="options.php" class="sunset_general_form">
@@ -29,7 +40,7 @@ $description = esc_attr(get_option('description_name'));
   /* show sidebar */
   //do_settings_sections($page)
   do_settings_sections('maria_sunset');
-  submit_button('Save changes','primary','submit');
+  submit_button('Save changes', 'primary', 'submit');
 
 
 

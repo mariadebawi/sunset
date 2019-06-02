@@ -12,11 +12,11 @@
 }
 
 @mixin transform($val) {
-    -webkit-transform: $val;
-    -moz-transform: $val;
-    -ms-transform: $val;
-    -o-transform: $val;
-    transform: $val;
+   transform: $val;
+   -webkit-transform: $val;
+   -moz-transform: $val;
+   -ms-transform: $val;
+   -o-transform: $val;
 }
 
 @mixin  fillwidth {

@@ -111,9 +111,21 @@ jQuery(document).ready(function ($) {
     });
 
 
+    // sidebar functions
+   /* $(document).on('click', '.js-closeSidebar', function () { 
+         $('.sunset-sidebar').addClass('sidebar-closed');
+    });
 
+    $(document).on('click', '.js-openSidebar', function () { 
+        $('.sunset-sidebar').removeClass('sidebar-closed');
+   });
 
-
+*/
+    $(document).on('click', '.js-ToggleSidebar', function () { 
+     /* toggleClass = addClass +  removeClass :  if class sidebar-closed exist  remove it sinon add it   */
+        $('.sunset-sidebar').toggleClass('sidebar-closed');
+    });
+ 
 
 
 

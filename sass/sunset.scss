@@ -841,7 +841,8 @@ h1 {
     display: block;
     border-top: 1px solid $lighter-grey;
     padding-top: 10px;
-    clear: both; /* show the  .sunset_sharingThis in the right place   */
+    clear: both;
+    /* show the  .sunset_sharingThis in the right place   */
 
     h4 {
         color: #f56b08;
@@ -880,112 +881,114 @@ h1 {
 
 .comments-area {
     border-top: 4px solid #f5f5f5;
-    margin-top: 40px ;
+    margin-top: 40px;
 
 }
 
 .last-field {
-	margin-bottom: 50px !important;
+    margin-bottom: 50px !important;
 }
-.comment-list{
-    padding: 0 ;
-    list-style: none ;
+
+.comment-list {
+    padding: 0;
+    list-style: none;
 }
+
 .comment-body {
-	padding-bottom: 0;
+    padding-bottom: 0;
 }
 
 .children {
-	background-color: #F5F5F5;
-	padding-right: 20px;
-	padding-left: 20px;
-	list-style: none;
-	margin-left: 60px;
-	
-	.comment-author {
-		&:before {
-			background-color: #fff;
-		}
-	}
-	
+    background-color: #F5F5F5;
+    padding-right: 20px;
+    padding-left: 20px;
+    list-style: none;
+    margin-left: 60px;
+
+    .comment-author {
+        &:before {
+            background-color: #fff;
+        }
+    }
+
 }
 
 
 .comment-author {
-	
-	position: relative;
-	display: block;
-	font-size: 18px;
-	font-weight: 300;
-	
-	&:before {
-		position: absolute;
-		content: '';
-		display: block;
-		top: 10px;
-		bottom: 13px;
-		left: 40px;
-		right: 0;
-		background-color: #f5f5f5;
-		z-index: 1;
-		border-radius: 4px;
-	}
-	
-	& * {
-		z-index: 1;
-		position: relative;
-	}
-	
-	b {
-		font-weight: 400;
-	}
-	
-	.avatar {
-		border-radius: 50%;
-		margin-right: 10px;
-		border: 3px solid #fff;
-	}
-	
+
+    position: relative;
+    display: block;
+    font-size: 18px;
+    font-weight: 300;
+
+    &:before {
+        position: absolute;
+        content: '';
+        display: block;
+        top: 10px;
+        bottom: 13px;
+        left: 40px;
+        right: 0;
+        background-color: #f5f5f5;
+        z-index: 1;
+        border-radius: 4px;
+    }
+
+    & * {
+        z-index: 1;
+        position: relative;
+    }
+
+    b {
+        font-weight: 400;
+    }
+
+    .avatar {
+        border-radius: 50%;
+        margin-right: 10px;
+        border: 3px solid #fff;
+    }
+
 }
 
 
 .comment-metadata {
-	text-align: right;
-	text-transform: uppercase;
-	margin-top: -5px;
-	font-size: 12px;
-	
-	a {
-		color: #999;
-	}
-	
+    text-align: right;
+    text-transform: uppercase;
+    margin-top: -5px;
+    font-size: 12px;
+
+    a {
+        color: #999;
+    }
+
 }
 
 .comment-content {
-	padding: 20px 0;
-	font-size: 16px;
-	font-weight: 300;
-	border-bottom: 1px solid #E6E6E6;
-	margin-left: 60px;
+    padding: 20px 0;
+    font-size: 16px;
+    font-weight: 300;
+    border-bottom: 1px solid #E6E6E6;
+    margin-left: 60px;
 }
 
 .reply {
-	text-align: right;
-	padding: 5px 0;
+    text-align: right;
+    padding: 5px 0;
 }
 
 a.comment-reply-link {
-	text-transform: uppercase;
-	color: #ff9d1d;
-		
-		&:hover,
-		&:focus {
-			color: #F56B08;
-		}	
+    text-transform: uppercase;
+    color: #ff9d1d;
+
+    &:hover,
+    &:focus {
+        color: #F56B08;
+    }
 }
 
 .comment-respond {
-	margin-top: 60px;
+    margin-top: 60px;
 }
 
 
@@ -994,14 +997,55 @@ a.comment-reply-link {
       | | |  Sidebar    | | |
 ***********************************/
 
-.sunset-sidebar{
+.sunset-sidebar {
     position: fixed;
-    top: 0 ;
+    top: 0;
     right: 0;
     z-index: 9;
-    background-color: #1f1f1f ;
-    color: #fff ;
-    height: 100vh; /* 100vh give you all the hight with all browser*/
-    width: 100% ;
-    max-width: 280px ;
+    background-color: #1f1f1f;
+    color: #fff;
+    height: 100vh;
+    /* 100vh give you all the hight with all browser*/
+    width: 100%;
+    max-width: 280px;
+    @include animate(transform, 320ms);
+
+    &.sidebar-closed {
+        @include transform(translateX(100%));
+    }
+}
+
+.sunset-sidebar-container {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    display: block;
+    padding-top: 40px;
+
+    .sidebar-close {
+        position: absolute !important;
+        top: 10px !important;
+        left: 10px !important;
+        color: #fff !important;
+        cursor: pointer;
+
+        &:hover {
+            color: $orange !important;
+        }
+    }
+
+    .sidebar-open {
+        position: absolute !important;
+        top: 10px !important;
+        right: 10px !important;
+        font-size: 10px;
+        color: #fff !important;
+        cursor: pointer;
+       
+        &:hover {
+            color: $orange !important;
+        }
+    }
+
+
 }

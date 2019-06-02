@@ -32,16 +32,29 @@
 
 <body <?php body_class(); ?>>
 
-    <div class="sunset-sidebar">
-        <div class="sidebar-scroll">
-            <?php get_sidebar(); ?>
+    <!-- Create a sidebar -->
+    <div class="sunset-sidebar sidebar-closed">
+        <div class="sunset-sidebar-container">
+            <a class="js-ToggleSidebar sidebar-close">
+                <span class="sunset-icon sunset-close"></span>
+            </a>
+
+            <div class="sidebar-scroll">
+                <?php get_sidebar(); ?>
+            </div>
         </div>
     </div>
-    
+    <!-- end  sidebar -->
+
     <div class="container-fluid">
         <div class="row">
             <header class="header_container background_image text-center" style="background-image:url(<?php header_image(); ?>); ">
-                <div class="header-content table ">
+            <div class="sunset-sidebar-container">   
+                <a class="js-ToggleSidebar sidebar-open">
+                    <span class="sunset-icon sunset-menu"></span>
+                 </a>
+            </div>
+               <div class="header-content table ">
                     <div class="table-cell">
                         <!-- icons of sunset_icon.css file -->
                         <h1 class="site-title sunset-icon">

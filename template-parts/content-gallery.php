@@ -42,7 +42,7 @@
                 <span class="thumbnail-container background_image">
                   <!-- let's add this image thumb to .thumbnail-container with js on '/js/sunset.js'  -->
                 </span>
-                <span class="icon sunset-chevron-left" aria-hidden="true"></span>
+                <span class="sunset-icon sunset-chevron-left" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
               </div>
             </div>
@@ -53,7 +53,7 @@
             <div class="table-cell">
               <div class="preview-container background_image">
                 <span class="thumbnail-container"></span>
-                <span class="icon sunset-chevron-right" aria-hidden="true"></span>
+                <span class="sunset-icon sunset-chevron-right" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
               </div>
             </div>

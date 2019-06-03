@@ -32,7 +32,7 @@
 
 <body <?php body_class(); ?>>
 
-    <!-- Create a sidebar sidebar-closed -->
+    <!-- Create a sidebar sidebar-closed   -->
     <div class="sunset-sidebar ">
        
         <div class="sunset-sidebar-container">
@@ -51,11 +51,7 @@
     <div class="container-fluid">
         <div class="row">
             <header class="header_container background_image text-center" style="background-image:url(<?php header_image(); ?>); ">
-                <div class="sunset-sidebar-container">
-                    <a class="js-ToggleSidebar sidebar-open">
-                        <span class="sunset-icon sunset-menu"></span>
-                    </a>
-                </div>
+                
                 <div class="header-content table ">
                     <div class="table-cell">
                         <!-- icons of sunset_icon.css file -->
@@ -78,6 +74,11 @@
                         ));
                         ?>
                     </div>
+                </div>
+                <div class="sunset-sidebar-container">
+                    <a class="js-ToggleSidebar sidebar-open">
+                        <span class="sunset-icon sunset-menu"></span>
+                    </a>
                 </div>
             </header>
         </div>

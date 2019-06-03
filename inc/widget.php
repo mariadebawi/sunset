@@ -25,7 +25,7 @@ class Sunset_Profile_Widget extends WP_Widget
     //back-end display of widget
     public function form($instance)
     {
-        echo '<p><strong>No options for this Widget!</strong><br/>You can control the fields of this Widget from <a href="./admin.php?page=alecaddd_sunset">This Page</a></p>';
+        echo '<p><strong>No options for this Widget!</strong><br/>You can control the fields of this Widget from <a href="./admin.php?page=maria_sunset" target="_blank">This Page</a></p>';
     }
 
     //front-end display of widget
@@ -48,7 +48,7 @@ class Sunset_Profile_Widget extends WP_Widget
         <div class="sunset_sidebar_preview">
             <div class="sunset_sidebar">
                 <div class="image_container">
-                    <div id="picture_profile_preview" class="profile_container" style="background-image: url(<?php print $picture; ?>) ;">
+                    <div id="picture_profile_preview" class="profile_container background_image" style="background-image: url(<?php print $picture; ?>) ;">
                     </div>
                 </div>
                 <h1 class="sunset_username"> <?php print $fullName; ?></h1>
@@ -75,3 +75,23 @@ class Sunset_Profile_Widget extends WP_Widget
 add_action('widgets_init', function () {
     register_widget('Sunset_Profile_Widget');
 });
+
+// edit default wordpress widgets
+function sunset_tag_cloud_font_change($args){
+    $args['smallest'] = 8 ;
+    $args['largest'] = 8 ;
+       return $args ;
+}
+add_filter('widget_tag_cloud_args','sunset_tag_cloud_font_change');
+
+
+// change tag a to tag span 
+function sunset_list_categories_output_change( $links ) {
+	
+	$links = str_replace('</a> (', '</a> <span>', $links);
+	$links = str_replace(')', '</span>', $links);
+	
+	return $links;
+	
+}
+add_filter( 'wp_list_categories', 'sunset_list_categories_output_change' );

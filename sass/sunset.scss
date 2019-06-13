@@ -24,6 +24,10 @@
 ******************************/
 body {
     font-family: $font-body;
+    
+    &.no-scroll{
+        overflow-y: hidden ;
+    }
 }
 
 .background_image {

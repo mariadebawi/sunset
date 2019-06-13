@@ -95,3 +95,4 @@ function sunset_list_categories_output_change( $links ) {
 	
 }
 add_filter( 'wp_list_categories', 'sunset_list_categories_output_change' );
+

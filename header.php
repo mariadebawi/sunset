@@ -32,8 +32,8 @@
 
 <body <?php body_class(); ?>>
 
-    <!-- Create a sidebar sidebar-closed   -->
-    <div class="sunset-sidebar ">
+    <!-- Create a sidebar   -->
+    <div class="sunset-sidebar sidebar-closed ">
        
         <div class="sunset-sidebar-container">
             <a class="js-ToggleSidebar sidebar-close">
@@ -46,6 +46,7 @@
         </div>
 
     </div>
+    <div class="sidebar-overlay"></div>
     <!-- end  sidebar -->
 
     <div class="container-fluid">

@@ -100,13 +100,13 @@ function sunset_sidebar_picture()
    $picture = esc_attr(get_option('profile_picture'));
    if (!empty($picture)) {
       echo '
-   <input type="button" class="button button-secondary" value="Replace profile picture" id="upload_button"/>
+   <input type="button" class="button take_me button-secondary" value="Replace profile picture" id="upload_button"/>
    <input id="profile" type="hidden"  name="profile_picture"' . $picture . '/>
    <input type="button" class="button button-secondary" value="Remove" id="remove_button"/>
    <input id="profile" type="hidden"  name="profile_picture"' . $picture . '/>';
    } else {
       echo '
-   <input type="button" class="button button-secondary" value="Upload profile picture" id="upload_button"/>
+   <input type="button" class="button take_me button-secondary" value="Upload profile picture" id="upload_button"/>
    <input id="profile" type="hidden"  name="profile_picture"' . $picture . '/>';
    }
 }

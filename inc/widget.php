@@ -135,15 +135,21 @@ class Sunset_Popular_Posts_Widget extends WP_Widget
           
           if($post_query->have_posts()) : 
            
-            echo '<ul>' ; 
+           // echo '<ul>' ; 
             
             while($post_query->have_posts()) : $post_query->the_post();
-                 
-                echo '<li class="popular-post">'. get_the_title().'</li>';
-             
-                endwhile ;    
+          
+            echo '<div class="media">';
+           //standart not foud on format wp
+            echo '<div class="media-left"> <img class="media-object" src ="'.  get_template_directory_uri().'/img/post-'.(get_post_format() ? get_post_format(): 'standard').'.png" alt="'.get_the_title().'" /></div>';
+
+            echo '<div class="media-body">'. get_the_title().'</li>';
            
-             echo '</ul>' ;
+            echo '</div>' ;
+           
+            endwhile ;    
+           
+          //   echo '</ul>' ;
 
           endif ;
 

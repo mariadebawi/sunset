@@ -10,6 +10,11 @@ $lastName = esc_attr(get_option('last_name'));
 $fullName = $firstName . '  ' . $lastName;
 $description = esc_attr(get_option('description_name'));
 
+
+$twitter_icon =  esc_attr(get_option('twitter'));
+$facebook_icon = esc_attr(get_option('facebook'));
+$gplus_icon = esc_attr(get_option('gplus'));
+
 ?>
 <div class="sunset_sidebar_preview">
   <div class="sunset_sidebar">
@@ -19,7 +24,7 @@ $description = esc_attr(get_option('description_name'));
     </div>
     <h1 class="sunset_username"> <?php print $fullName; ?></h1>
     <h2 class="sunset_description"> <?php print $description; ?></h1>
-      <div class="icon_wrapper">
+      <div class="icon_wrapper" >
           <?php if (!empty($twitter_icon)) : ?>
             <span class="sunset-icon-sidebar dashicons-before dashicons-twitter"></span>
           <?php endif;

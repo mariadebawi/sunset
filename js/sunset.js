@@ -124,7 +124,7 @@ jQuery(document).ready(function ($) {
     $(document).on('click', '.js-ToggleSidebar', function () {
         /* toggleClass = addClass +  removeClass :  if class sidebar-closed exist  remove it sinon add it   */
         $('.sunset-sidebar').toggleClass('sidebar-closed');
-        $('.sidebar-overlay').fadeToggle(320);
+        $('.sidebar-overlay').fadeToggle(320); // fadeIn + fadeOut
         $('body').toggleClass('no-scroll');
   
         

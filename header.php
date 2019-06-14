@@ -48,7 +48,7 @@
         </div>
 
     </div>
-    <div class="sidebar-overlay"></div>
+    <div class="sidebar-overlay js-ToggleSidebar"></div>
     <!-- end  sidebar -->
 
     <div class="container-fluid">

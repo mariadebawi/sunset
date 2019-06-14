@@ -1,4 +1,4 @@
-/* pour mieux comprendre ou apprendre voir img/sass.png*/
+/* pour mieux comprendre ou apprendre voir img/sass.png*/ 
 
 /*
 	imports
@@ -247,13 +247,12 @@
     }
 
     //popular post 
-    .popular-post {
-        list-style: none;
-        font-size: 12px;
-        padding: 4px 0;
+    .media {
+        font-size: 14px;
         color: #ccc;
-        margin-left: -24px;
-    }
+        display: block;
+     
+}
 
 
 }

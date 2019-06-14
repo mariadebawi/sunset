@@ -14,7 +14,7 @@ $(function () {
             button: {
                 text: 'Choose picture'
             },
-            multiple: false
+            multiple: true
         });
         mediaUploader.on('select', function () {
             attachement = mediaUploader.state().get('selection').first().toJSON();

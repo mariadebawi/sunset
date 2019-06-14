@@ -25,7 +25,8 @@ function sunset_load_admin_scripts($hook)
 
     /* upload a picture  with jquery 'admin.js'*/
     wp_enqueue_media();
-  } else if ('sunset_page_maria_sunset_css' == $hook) {
+  } 
+  if ('sunset_page_maria_sunset_css' == $hook) {
     /* with "ace" we can add an editor css */
     wp_enqueue_script('jquery');
     wp_enqueue_script('ace', get_template_directory_uri() . "/js/ace/ace.js", '1.2.1', true);
@@ -33,9 +34,8 @@ function sunset_load_admin_scripts($hook)
 
     wp_register_style('custom_css_style', get_template_directory_uri() . '/css/custom_css.css', array(), '1.1.0', 'all');
     wp_enqueue_style('custom_css_style');
-  } else {
-    return;
   }
+  
 }
 /* style of admin */
 add_action('admin_enqueue_scripts', 'sunset_load_admin_scripts');

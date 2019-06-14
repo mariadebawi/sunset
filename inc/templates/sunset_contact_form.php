@@ -8,6 +8,8 @@
 
 ?>
 <form method="post" action="options.php" class="sunset_general_form">
+  <p> You can get the contact form with<strong> shortcode</strong> </p> 
+  <p><code> [contact_form] </code></p>
     <?php
     //var_dump($options) ;
     //settings_fields($option_group)

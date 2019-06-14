@@ -138,15 +138,35 @@ class Sunset_Popular_Posts_Widget extends WP_Widget
            // echo '<ul>' ; 
             
             while($post_query->have_posts()) : $post_query->the_post();
+
+            
           
             echo '<div class="media">';
            //standart not foud on format wp
-            echo '<div class="media-left"> <img class="media-object" src ="'.  get_template_directory_uri().'/img/post-'.(get_post_format() ? get_post_format(): 'standard').'.png" alt="'.get_the_title().'" /></div>';
+            echo 
 
-            echo '<div class="media-body">'. get_the_title().'</li>';
-           
-            echo '</div>' ;
-           
+            '<div class="media-left">
+               <img class="media-object" src ="'.  get_template_directory_uri().'/img/post-'.(get_post_format() ? get_post_format(): 'standard').'.png" alt="'.get_the_title().'" />
+             </div>';
+
+            echo '<div class="media-body">'. get_the_title().'</div>';
+          
+                $comments_nbr = get_comments_number();
+                if (comments_open()) {
+                if ($comments_nbr == 0) {
+                    $comments = '<span>No </span>'.__('Comments');
+                } elseif ($comments_nbr > 1) {
+                    $comments =  '<span> '.$comments_nbr .' </span>' . __('Comments');
+                } else {
+                    $comments = '<span> 1 </span>'.__('Comment');
+                }
+                $comments = '<a class="comments-link" href="' . get_comments_link() . '">' . $comments . '<span class="sunset-icon sunset-comment"></span></a>';
+                } else {
+                $comments = __('Comments Closed');
+                }
+              
+                echo " <div class='media-comment'>  $comments </div>" ;
+       
             endwhile ;    
            
           //   echo '</ul>' ;
@@ -156,10 +176,17 @@ class Sunset_Popular_Posts_Widget extends WP_Widget
 
          echo $args['after_widget'];
    
+  
+
+
+
+
+
+
 
     }
 
-
+  
     //update widget 
     public function update($newInstance , $oldInstance){
       $instance = array();

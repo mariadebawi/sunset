@@ -569,8 +569,30 @@ img.aligncenter {
 }
 .sunset-widget .media {
   font-size: 14px;
-  color: #ccc;
+  color: #fff;
   display: block;
+}
+.sunset-widget .media .media-body {
+  padding-bottom: 10px;
+  /* color: red; */
+}
+.sunset-widget .media .media-comment {
+  font-size: 11px;
+}
+.sunset-widget .media a.comments-link {
+  padding-left: 35px;
+  color: #bababa;
+  -webkit-transition: color 320 ease;
+  -moz-transition: color 320 ease;
+  -ms-transition: color 320 ease;
+  -o-transition: color 320 ease;
+  transition: color 320 ease;
+}
+.sunset-widget .media a.comments-link:hover {
+  color: #fff;
+}
+.sunset-widget .media .sunset-comment {
+  padding-left: 5px;
 }
 
 /***********************

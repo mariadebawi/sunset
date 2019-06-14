@@ -567,6 +567,13 @@ img.aligncenter {
   margin-bottom: 2px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
+.sunset-widget .popular-post {
+  list-style: none;
+  font-size: 12px;
+  padding: 4px 0;
+  color: #ccc;
+  margin-left: -24px;
+}
 
 /***********************
     | | |  Generic   | | |

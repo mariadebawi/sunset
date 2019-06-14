@@ -32,17 +32,19 @@
 
 <body <?php body_class(); ?>>
 
-    <!-- Create a sidebar   -->
+    <!-- Create a sidebar sidebar-closed   -->
     <div class="sunset-sidebar sidebar-closed ">
        
         <div class="sunset-sidebar-container">
-            <a class="js-ToggleSidebar sidebar-close">
-                <span class="sunset-icon sunset-close"></span>
-            </a>
 
             <div class="sidebar-scroll">
                 <?php get_sidebar(); ?>
             </div>
+
+            <a class="js-ToggleSidebar sidebar-close">
+                <span class="sunset-icon sunset-close"></span>
+            </a>
+            
         </div>
 
     </div>

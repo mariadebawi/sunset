@@ -8,6 +8,7 @@
 	========================
 */
 
+//profile widget 
 class Sunset_Profile_Widget extends WP_Widget
 {
 
@@ -31,45 +32,12 @@ class Sunset_Profile_Widget extends WP_Widget
     //front-end display of widget
     public function widget($args, $instance)
     {
-
-        $picture = esc_attr(get_option('profile_picture'));
-        $firstName = esc_attr(get_option('first_name'));
-        $lastName = esc_attr(get_option('last_name'));
-        $fullName = $firstName . '  ' . $lastName;
-        $description = esc_attr(get_option('description_name'));
-
-        $twitter_icon =  esc_attr(get_option('twitter'));
-        $facebook_icon = esc_attr(get_option('facebook'));
-        $gplus_icon = esc_attr(get_option('gplus'));
-
         echo $args['before_widget'];
-        ?>
-    <div class="text-center">
-        <div class="sunset_sidebar_preview">
-            <div class="sunset_sidebar">
-                <div class="image_container">
-                    <div id="picture_profile_preview" class="profile_container background_image" style="background-image: url(<?php print $picture; ?>) ;">
-                    </div>
-                </div>
-                <h1 class="sunset_username"> <?php print $fullName; ?></h1>
-                <h2 class="sunset_description"> <?php print $description; ?></h1>
-                    <div class="icon_wrapper">
-                        <?php if (!empty($twitter_icon)) : ?>
-                            <a href="https://twitter.com/<?php echo $twitter_icon; ?>" target="_blank"><span class="sunset-icon-sidebar sunset-icon sunset-twitter"></span></a>
-                        <?php endif;
-                    if (!empty($gplus_icon)) : ?>
-                            <a href="https://plus.google.com/u/0/+<?php echo $gplus_icon; ?>" target="_blank"><span class="sunset-icon-sidebar sunset-icon sunset-googleplus"></span></a>
-                        <?php endif;
-                    if (!empty($facebook_icon)) : ?>
-                            <a href="https://facebook.com/<?php echo $facebook_icon; ?>" target="_blank"><span class="sunset-icon-sidebar sunset-icon sunset-facebook"></span></a>
-                        <?php endif; ?>
-                    </div>
-            </div>
-        </div>
-    </div>
-    <?php
-    echo $args['after_widget'];
-}
+
+        require(get_template_directory() . '/inc/templates/profile.php');
+     
+        echo $args['after_widget'];
+    }
 }
 
 add_action('widgets_init', function () {
@@ -77,22 +45,126 @@ add_action('widgets_init', function () {
 });
 
 // edit default wordpress widgets
-function sunset_tag_cloud_font_change($args){
-    $args['smallest'] = 8 ;
-    $args['largest'] = 8 ;
-       return $args ;
+function sunset_tag_cloud_font_change($args)
+{
+    $args['smallest'] = 8;
+    $args['largest'] = 8;
+    return $args;
 }
-add_filter('widget_tag_cloud_args','sunset_tag_cloud_font_change');
+add_filter('widget_tag_cloud_args', 'sunset_tag_cloud_font_change');
 
 
 // change tag a to tag span 
-function sunset_list_categories_output_change( $links ) {
-	
-	$links = str_replace('</a> (', '</a> <span>', $links);
-	$links = str_replace(')', '</span>', $links);
-	
-	return $links;
-	
-}
-add_filter( 'wp_list_categories', 'sunset_list_categories_output_change' );
+function sunset_list_categories_output_change($links)
+{
 
+    $links = str_replace('</a> (', '</a> <span>', $links);
+    $links = str_replace(')', '</span>', $links);
+
+    return $links;
+}
+add_filter('wp_list_categories', 'sunset_list_categories_output_change');
+
+
+//save post views 
+function save_post_views($postId){
+  $metaKey = 'sunset_post_views' ;
+  $views = get_post_meta($postId, $metaKey, true) ;
+   $count = (empty($views) ? 0 : $views) ;
+   $count++ ;
+     update_post_meta($postId, $metaKey, $count) ;
+    // echo '<h1>'.$count.'</h1>';
+}
+remove_action('wp_head','adjacent_post_rel_link_wp_head',10,0);
+
+
+// Popular Post
+class Sunset_Popular_Posts_Widget extends WP_Widget
+{
+
+    //setup the widget name, description, etc...
+    public function __construct()
+    {
+
+        $widget_ops = array(
+            'classname' => 'sunset-popular-posts-widget',
+            'description' => 'Popular Posts',
+        );
+        parent::__construct('sunset_popular_posts', 'Popular Posts', $widget_ops);
+    }
+
+    //back-end display of widget
+    public function form($instance)
+    {
+       $title = (!empty($instance['title']) ? $instance['title'] : 'Popular Posts' ) ;
+       $tot = (!empty($instance['tot']) ? absint($instance['tot']) : 4 ) ;
+
+       $output = "<p>" ;
+       $output .= "<label for ='". esc_attr($this->get_field_id('title'))."' > Title : </label>" ;
+       $output .= "<input type = 'text' class='widefat' name ='". esc_attr($this->get_field_name('title'))."' id='". esc_attr($this->get_field_id('title'))."' value='". esc_attr($title)."' />" ;
+       $output .= "</p>" ;
+
+       $output .= "<p>" ;
+       $output .= "<label for ='". esc_attr($this->get_field_id('tot'))."' > Number  : </label>" ;
+       $output .= "<input type = 'number' class='widefat' name ='". esc_attr($this->get_field_name('tot'))."' id='". esc_attr($this->get_field_id('tot'))."' value='". esc_attr($tot)."' />" ;
+       $output .= "</p>" ;
+
+      echo $output ;
+    }
+
+    //front-end display of widget
+    public function widget($args, $instance)
+    {   
+        $tot = absint($instance['tot']) ;
+        $post_args = array(
+            'post_type'       => 'post' ,
+             'posts_per_page' =>  $tot ,
+             'meta_key'       =>  'sunset_post_views' ,
+             'orderby'        =>  'meta_value_num'  ,
+             'order'          =>  'desc'
+        ) ;
+        $post_query = new WP_Query($post_args) ;
+
+         echo $args['before_widget'];
+
+          if(!empty($instance['title'])) :
+            
+            echo $args['before_title'] . apply_filters('widget_title' , $instance['title']) . $args['after_title'];
+         
+            endif ;
+          
+          if($post_query->have_posts()) : 
+           
+            echo '<ul>' ; 
+            
+            while($post_query->have_posts()) : $post_query->the_post();
+                 
+                echo '<li class="popular-post">'. get_the_title().'</li>';
+             
+                endwhile ;    
+           
+             echo '</ul>' ;
+
+          endif ;
+
+
+         echo $args['after_widget'];
+   
+
+    }
+
+
+    //update widget 
+    public function update($newInstance , $oldInstance){
+      $instance = array();
+     
+      $instance['title'] = (!empty($newInstance['title']) ? strip_tags($newInstance['title']) :'') ;
+      $instance['tot'] = (!empty($newInstance['tot']) ? absint(strip_tags($newInstance['tot'])) : 0) ;
+     
+      return $instance ;
+    }
+}
+
+add_action('widgets_init', function () {
+    register_widget('Sunset_Popular_Posts_Widget');
+});

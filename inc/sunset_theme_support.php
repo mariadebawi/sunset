@@ -259,6 +259,7 @@ function sunset_sharing_this($content)
       return $content;
    } else {
       return $content;
+      
    }
 }
 add_filter('the_content', 'sunset_sharing_this'); // show the .sunset_sharingThis class

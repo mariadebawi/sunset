@@ -220,28 +220,31 @@ img.aligncenter {
   display: block;
   padding-top: 10px;
 }
-.sunset-sidebar-container .sidebar-close {
+
+.sidebar-close {
   position: absolute !important;
   top: 10px !important;
   left: 10px !important;
   color: #fff !important;
   cursor: pointer;
 }
-.sunset-sidebar-container .sidebar-close:hover {
+.sidebar-close:hover {
   color: #ff9414 !important;
 }
-.sunset-sidebar-container .sidebar-open {
+
+.sidebar-open {
   position: absolute !important;
-  top: -251px !important;
+  top: 10px !important;
   right: 10px !important;
-  font-size: 10px;
   color: #fff !important;
   cursor: pointer;
+  font-size: 10px;
 }
-.sunset-sidebar-container .sidebar-open:hover {
+.sidebar-open:hover {
   color: #ff9414 !important;
 }
-.sunset-sidebar-container .sidebar-scroll {
+
+.sidebar-scroll {
   position: relative;
   display: block;
   width: 100%;

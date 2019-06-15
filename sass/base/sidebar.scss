@@ -1,4 +1,4 @@
-/* pour mieux comprendre ou apprendre voir img/sass.png*/ 
+/* pour mieux comprendre ou apprendre voir img/sass.png*/
 
 /*
 	imports
@@ -66,25 +66,26 @@
     display: block;
     padding-top: 10px;
 
-    .sidebar-close {
-        position: absolute !important;
-        top: 10px !important;
-        left: 10px !important;
-        color: #fff !important;
-        cursor: pointer;
+}
 
-        &:hover {
-            color: $orange !important;
-        }
+.sidebar-close {
+    position: absolute !important;
+    top: 10px !important;
+    left: 10px !important;
+    color: #fff !important;
+    cursor: pointer;
+
+    &:hover {
+        color: $orange !important;
     }
-
+}
     .sidebar-open {
         position: absolute !important;
-        top: -251px !important;
+        top: 10px !important;
         right: 10px !important;
-        font-size: 10px;
         color: #fff !important;
         cursor: pointer;
+        font-size: 10px;
 
         &:hover {
             color: $orange !important;
@@ -94,14 +95,14 @@
     .sidebar-scroll {
         position: relative;
         display: block;
-        width: 100% ;
-        height: 100% ;
-        overflow-x: hidden ;
-        overflow-y: scroll ;
+        width: 100%;
+        height: 100%;
+        overflow-x: hidden;
+        overflow-y: scroll;
 
     }
 
-}
+
 
 
 /* widget sidebar*/
@@ -189,8 +190,7 @@
     }
 
     // Categories Widget
-    .cat-item 
-     {
+    .cat-item {
         position: relative;
         list-style: none;
 
@@ -219,7 +219,7 @@
     }
 
     // recentComment widget 
-    .recentcomments    {
+    .recentcomments {
         list-style: none;
         font-size: 10px;
         color: #ccc;
@@ -251,11 +251,11 @@
         font-size: 14px;
         color: #fff;
         display: block;
-        
-        .media-body{
+
+        .media-body {
             padding-bottom: 10px;
             /* color: red; */
-        }  
+        }
 
         .media-comment {
             font-size: 11px;
@@ -264,17 +264,17 @@
         a.comments-link {
             padding-left: 35px;
             color: #bababa;
-            @include animate(color , 320) ;
-            
-            &:hover{
+            @include animate(color, 320);
+
+            &:hover {
                 color: #fff;
             }
         }
-    
+
         .sunset-comment {
             padding-left: 5px;
         }
-}
+    }
 
 
 }

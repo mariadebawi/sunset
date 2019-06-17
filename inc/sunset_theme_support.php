@@ -305,6 +305,14 @@ function sunset_comment_form()
    return $args;
 }
 
-
-
-
+// MailTrap
+function mailtrap($phpmailer) { //https://mailtrap.io/inboxes/508347/messages/1300498931/raw
+   $phpmailer->isSMTP();
+   $phpmailer->Host = 'smtp.mailtrap.io';
+   $phpmailer->SMTPAuth = true;
+   $phpmailer->Port = 2525;
+   $phpmailer->Username = 'f174e315667402';
+   $phpmailer->Password = '6a7b0e23c45fe4';
+ }
+ 
+ add_action('phpmailer_init', 'mailtrap');

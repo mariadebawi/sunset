@@ -196,10 +196,12 @@ jQuery(document).ready(function ($) {
 
             }
 
+       //submission
             form.find('input , button, textarea').attr('disabled', 'disabled') ;
             $('.js-form-submission').addClass('js-show-feedback ') ;
              
-       $.ajax({
+    
+            $.ajax({
             url: ajaxUrl,
             type: 'post',
             data: {
@@ -209,27 +211,33 @@ jQuery(document).ready(function ($) {
                 action: 'sunset_save_contact_form' // function declarted en ajax.php
             },
             error: function (response) {
-             setTimeout(() => {
-                $('.js-form-submission').removeClass('js-show-feedback ') ;
-                $('.js-form-error').addClass('js-show-feedback ') ;
-                form.find('input , button, textarea').removeAttr('disabled') ;
-             }, 2000);
-            },
-            success: function (response) { // response from ajax.php
-              if(response == 0){
-                  setTimeout(() => {
+              
+                setTimeout(() => {
                     $('.js-form-submission').removeClass('js-show-feedback ') ;
                     $('.js-form-error').addClass('js-show-feedback ') ;
                     form.find('input , button, textarea').removeAttr('disabled') ;
-                  }, 2000); 
-              }
+                }, 2000);
+           
+            },
+            success: function (response) { // response from ajax.php
+                if(response == 0){
+
+                    setTimeout(() => {
+                        $('.js-form-submission').removeClass('js-show-feedback ') ;
+                        $('.js-form-error').addClass('js-show-feedback ') ;
+                        form.find('input , button, textarea').removeAttr('disabled') ;
+                    }, 2000); 
+             
+                }
               else{
-                  setTimeout(() => {
-                    $('.js-form-submission').removeClass('js-show-feedback ') ;
-                    $('.js-form-success').addClass('js-show-feedback ') ;
-                    form.find('input , button, textarea').removeAttr('disabled').val('') ; //vider les inputs      
-                  }, 2000);
-               }
+
+                    setTimeout(() => {
+                        $('.js-form-submission').removeClass('js-show-feedback ') ;
+                        $('.js-form-success').addClass('js-show-feedback ') ;
+                        form.find('input , button, textarea').removeAttr('disabled').val('') ; //vider les inputs      
+                    }, 2000);
+               
+                }
             }
         });
 

@@ -186,7 +186,12 @@ jQuery(document).ready(function ($) {
                 console.log(Response);
             },
             success: function (response) {
-              console.log('success') ;
+              if(response == 0){
+                  console.log('Unabele to save message , try again later') ;
+              }
+              else{
+                  console.log('message saved , thank you !') ;  
+              }
             }
         });
 

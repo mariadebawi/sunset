@@ -91,7 +91,7 @@ function sunset_contact_email_callback($post)
 {
   wp_nonce_field('sunset_save_contact_email_data', 'sunset_contact_email_meta_box_nonce');
 
-  $value = get_post_meta($post->ID, '_contact_email_value_key', true);
+  $value = get_post_meta($post->ID, '_email_contact_value_key', true);
 
   echo '<label for="sunset_contact_email_field">User Email Address: </lable>';
   echo '<input type="email" id="sunset_contact_email_field" name="sunset_contact_email_field" value="' . esc_attr($value) . '" size="25" />';
@@ -122,5 +122,5 @@ function sunset_save_contact_email_data($post_id)
 
   $my_data = sanitize_text_field($_POST['sunset_contact_email_field']);
 
-  update_post_meta($post_id, '_contact_email_value_key', $my_data);
+  update_post_meta($post_id, '_email_contact_value_key', $my_data);
 }

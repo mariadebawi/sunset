@@ -123,11 +123,23 @@ function sunset_check_paged( $num = null ){
 
 /* Contact form  */
 function sunset_save_contact_form(){
-	$name = wp_strip_all_tags($_POST['name']) ;
+	$title = wp_strip_all_tags($_POST['name']) ;
 	$email = wp_strip_all_tags($_POST['email']) ;
 	$message = wp_strip_all_tags($_POST['message']) ; 
-
-	  return $name  ;
+	  
+	$args = array(
+		'post_title'    =>  $title ,
+		'post_content'  =>  $message ,
+		'post_author'   =>  1,
+		'post_status'   =>  'publish',
+		'post_type'     =>  'sunset-contact' , // slug of page message
+		'meta_input'    =>  array(
+		   '_email_contact_value_key' /* meta_box_key  */ => $email
+		)
+	) ;
+	
+	$postId = wp_insert_post($args) ;
+	 echo $postId ;
 
 	die();
 }

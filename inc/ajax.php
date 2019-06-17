@@ -8,8 +8,15 @@
 		AJAX FUNCTIONS
 	========================
 */
+
+/* load more */
 add_action( 'wp_ajax_nopriv_sunset_load_more', 'sunset_load_more' );
 add_action( 'wp_ajax_sunset_load_more', 'sunset_load_more' );
+
+/* contact form  */ 
+add_action( 'wp_ajax_nopriv_sunset_save_contact_form', 'sunset_save_contact_form' );
+add_action( 'wp_ajax_sunset_save_contact_form', 'sunset_save_contact_form' );
+
 
 function sunset_load_more() {
 	
@@ -113,6 +120,17 @@ function sunset_check_paged( $num = null ){
 	
 }
 
+
+/* Contact form  */
+function sunset_save_contact_form(){
+	$name = wp_strip_all_tags($_POST['name']) ;
+	$email = wp_strip_all_tags($_POST['email']) ;
+	$message = wp_strip_all_tags($_POST['message']) ; 
+
+	  return $name  ;
+
+	die();
+}
 
 
 

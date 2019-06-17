@@ -64,7 +64,7 @@ jQuery(document).ready(function ($) {
                 action: 'sunset_load_more' // function declarted en ajax.php
             },
             error: function (response) {
-                console.log(Response);
+                //console.log(Response);
             },
             success: function (response) {
                 //console.log(response);
@@ -126,8 +126,8 @@ jQuery(document).ready(function ($) {
         $('.sunset-sidebar').toggleClass('sidebar-closed');
         $('.sidebar-overlay').fadeToggle(320); // fadeIn + fadeOut
         $('body').toggleClass('no-scroll');
-  
-        
+
+
     });
 
 
@@ -161,5 +161,50 @@ jQuery(document).ready(function ($) {
         // console.log('el_bottom  = ' + el_bottom) ;
         return ((el_bottom - el_height * 0.25 > scroll_pos) && (el_top < (scroll_pos + 0.5 * window_height)));
     }
+
+
+
+    /* CONTACT FORM */
+    $('#Sunset_contactform').submit(function (e) {
+        e.preventDefault();
+        //console.log('contact_form') ;
+        var form = $(this),
+            name = form.find('#name').val(),
+            email = form.find('#email').val(),
+            message = form.find('#message').val(),
+            ajaxUrl = form.data('url');
+        $.ajax({
+            url: ajaxUrl,
+            type: 'post',
+            data: {
+                name: name,
+                email: email,
+                message: message,
+                action: 'sunset_save_contact_form' // function declarted en ajax.php
+            },
+            error: function (response) {
+                console.log(Response);
+            },
+            success: function (response) {
+              console.log('success') ;
+            }
+        });
+
+
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 });

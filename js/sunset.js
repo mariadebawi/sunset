@@ -167,13 +167,39 @@ jQuery(document).ready(function ($) {
     /* CONTACT FORM */
     $('#Sunset_contactform').submit(function (e) {
         e.preventDefault();
+        $('.has-error').removeClass('has-error') ; // has-erros is a bootstrap class
+        $('.js-form-submission').removeClass('js-show-feedback ') ;
+
+
+
         //console.log('contact_form') ;
         var form = $(this),
             name = form.find('#name').val(),
             email = form.find('#email').val(),
             message = form.find('#message').val(),
             ajaxUrl = form.data('url');
-        $.ajax({
+
+            //test 
+            if(name === ''){
+                $('#name').parent('.form-group').addClass('has-error') ; // has-erros is a bootstrap class
+                return ;
+            }
+
+            if(email === ''){
+                $('#email').parent('.form-group').addClass('has-error') ; // has-erros is a bootstrap class
+                return ;
+
+            }
+            if(message === ''){
+                $('#message').parent('.form-group').addClass('has-error') ; // has-erros is a bootstrap class
+                return ;
+
+            }
+
+            form.find('input , button, textarea').attr('disabled', 'disabled') ;
+            $('.js-form-submission').addClass('js-show-feedback ') ;
+             
+       $.ajax({
             url: ajaxUrl,
             type: 'post',
             data: {
@@ -183,15 +209,27 @@ jQuery(document).ready(function ($) {
                 action: 'sunset_save_contact_form' // function declarted en ajax.php
             },
             error: function (response) {
-                console.log(Response);
+             setTimeout(() => {
+                $('.js-form-submission').removeClass('js-show-feedback ') ;
+                $('.js-form-error').addClass('js-show-feedback ') ;
+                form.find('input , button, textarea').removeAttr('disabled') ;
+             }, 2000);
             },
-            success: function (response) {
+            success: function (response) { // response from ajax.php
               if(response == 0){
-                  console.log('Unabele to save message , try again later') ;
+                  setTimeout(() => {
+                    $('.js-form-submission').removeClass('js-show-feedback ') ;
+                    $('.js-form-error').addClass('js-show-feedback ') ;
+                    form.find('input , button, textarea').removeAttr('disabled') ;
+                  }, 2000); 
               }
               else{
-                  console.log('message saved , thank you !') ;  
-              }
+                  setTimeout(() => {
+                    $('.js-form-submission').removeClass('js-show-feedback ') ;
+                    $('.js-form-success').addClass('js-show-feedback ') ;
+                    form.find('input , button, textarea').removeAttr('disabled').val('') ; //vider les inputs      
+                  }, 2000);
+               }
             }
         });
 

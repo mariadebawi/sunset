@@ -1,0 +1,19 @@
+.text-danger {
+  display: none;
+}
+
+.has-error .text-danger {
+  display: block;
+}
+
+.js-form-submission, .js-form-success, .js-form-error {
+  display: none;
+}
+
+.js-show-feedback {
+  display: block;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+/*# sourceMappingURL=contact-form.css.map */

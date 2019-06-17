@@ -139,7 +139,7 @@ function sunset_save_contact_form(){
 	) ;
 	
 	$postId = wp_insert_post($args) ;
-	 echo $postId ;
+	 echo 0 ;
 
 	die();
 }

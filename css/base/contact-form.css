@@ -1,19 +1,17 @@
-.text-danger {
-  display: none;
-}
+/* Error: Undefined variable.
+ *    ,
+ * 19 |         background-color: $grey2 ;
+ *    |                           ^^^^^^
+ *    '
+ *   sass\base\contact-form.scss 19:27  root stylesheet */
 
-.has-error .text-danger {
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
   display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Undefined variable.\a    \2577 \a 19 \2502          background-color: $grey2 ;\d\a    \2502                            ^^^^^^\a    \2575 \a   sass\\base\\contact-form.scss 19:27  root stylesheet";
 }
-
-.js-form-submission, .js-form-success, .js-form-error {
-  display: none;
-}
-
-.js-show-feedback {
-  display: block;
-  margin-top: 10px;
-  font-weight: 500;
-}
-
-/*# sourceMappingURL=contact-form.css.map */

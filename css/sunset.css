@@ -598,6 +598,82 @@ img.aligncenter {
   padding-left: 5px;
 }
 
+.My-contact-form {
+  padding: 40px 0;
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+}
+.My-contact-form .form-group {
+  margin-bottom: 30px;
+  position: relative;
+}
+.My-contact-form .form-group::before {
+  position: absolute;
+  display: block;
+  content: "";
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #cbcbcb;
+}
+.My-contact-form .form-group .form-control-msg {
+  text-transform: uppercase;
+  font-size: 10px;
+  font-weight: 500;
+}
+.My-contact-form .form-group.has-error::before {
+  background-color: #a94442;
+}
+
+.sunset-control-form {
+  resize: vertical;
+  border: none;
+  box-shadow: none !important;
+  padding: 8px 15px;
+  outline: none;
+}
+.sunset-control-form:hover, .sunset-control-form:focus, .sunset-control-form:active {
+  box-shadow: none;
+}
+.sunset-control-form::-webkit-input-placeholder {
+  text-transform: uppercase;
+}
+.sunset-control-form::-moz-input-placeholder {
+  text-transform: uppercase;
+}
+.sunset-control-form:-ms-input-placeholder {
+  text-transform: uppercase;
+}
+.sunset-control-form:-moz-input-placeholder {
+  text-transform: uppercase;
+}
+
+.sunset-btn-submit {
+  background-color: #656565;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border: none;
+  text-transform: uppercase;
+  padding: 14px 60px;
+  font-weight: 100;
+  color: #fff;
+  font-size: 14px;
+  -webkit-transition: all 320ms ease;
+  -moz-transition: all 320ms ease;
+  -ms-transition: all 320ms ease;
+  -o-transition: all 320ms ease;
+  transition: all 320ms ease;
+}
+.sunset-btn-submit:hover {
+  background-color: #333333;
+  color: #fff;
+}
+
 .text-danger {
   display: none;
 }
@@ -612,7 +688,7 @@ img.aligncenter {
 
 .js-show-feedback {
   display: block;
-  margin-top: 10px;
+  margin-top: 15px;
   font-weight: 500;
 }
 
